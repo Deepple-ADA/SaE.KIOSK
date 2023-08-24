@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF1B2A9725B600F532F1 /* MenuModel.swift */; };
+		4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF1D2A9725D400F532F1 /* MenuView.swift */; };
+		4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF202A97275F00F532F1 /* ColorExtension.swift */; };
 		B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739682A8D202E005CFC2C /* hackertonApp.swift */; };
 		B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7396A2A8D202E005CFC2C /* ContentView.swift */; };
 		B5C7396D2A8D202F005CFC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7396C2A8D202F005CFC2C /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4221DF1B2A9725B600F532F1 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		4221DF1D2A9725D400F532F1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		4221DF202A97275F00F532F1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4221DF192A97258E00F532F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5C7396A2A8D202E005CFC2C /* ContentView.swift */,
+				4221DF1D2A9725D400F532F1 /* MenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4221DF1A2A9725A400F532F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4221DF1B2A9725B600F532F1 /* MenuModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4221DF1F2A97273E00F532F1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4221DF202A97275F00F532F1 /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B5C7395C2A8D202E005CFC2C = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +87,10 @@
 			children = (
 				B5C739942A934D5E005CFC2C /* Info.plist */,
 				B5C739682A8D202E005CFC2C /* hackertonApp.swift */,
-				B5C7396A2A8D202E005CFC2C /* ContentView.swift */,
+				4221DF192A97258E00F532F1 /* View */,
 				B5C739762A8D23E8005CFC2C /* OrderButtonView.swift */,
+				4221DF1F2A97273E00F532F1 /* Extension */,
+				4221DF1A2A9725A400F532F1 /* Model */,
 				B5C7396C2A8D202F005CFC2C /* Assets.xcassets */,
 				B5C7396E2A8D202F005CFC2C /* Preview Content */,
 			);
@@ -142,7 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */,
+				4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */,
 				B5C739772A8D23E8005CFC2C /* OrderButtonView.swift in Sources */,
+				4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
 			);
@@ -273,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
@@ -281,8 +317,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
@@ -312,8 +347,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

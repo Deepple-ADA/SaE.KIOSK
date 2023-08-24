@@ -54,11 +54,10 @@
 		4221DF192A97258E00F532F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4221DF2D2A97533D00F532F1 /* CardView */,
 				B5C7396A2A8D202E005CFC2C /* ContentView.swift */,
 				4221DF1D2A9725D400F532F1 /* MenuView.swift */,
 				4221DF262A97458B00F532F1 /* OrderListView.swift */,
-				4221DF222A9735BC00F532F1 /* MenuCardView.swift */,
-				4221DF242A97429400F532F1 /* MenuTypeCardView.swift */,
 				4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */,
 			);
 			path = View;
@@ -79,6 +78,15 @@
 				4221DF202A97275F00F532F1 /* ColorExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4221DF2D2A97533D00F532F1 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				4221DF222A9735BC00F532F1 /* MenuCardView.swift */,
+				4221DF242A97429400F532F1 /* MenuTypeCardView.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 		B5C7395C2A8D202E005CFC2C = {

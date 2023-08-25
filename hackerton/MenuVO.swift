@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MenuVO: Codable, Hashable{
+struct MenuVO: Codable, Hashable {
     var productName: String
     var price: Int
     var amount: Int

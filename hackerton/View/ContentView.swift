@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @State var stack = NavigationPath()
     
-    
     var body: some View {
         NavigationStack(path: $stack) {
             VStack(spacing: 32) {
@@ -59,6 +58,7 @@ struct ContentView: View {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }
+       
     }
     
 }

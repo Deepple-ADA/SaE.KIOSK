@@ -13,9 +13,6 @@ struct OrderCardView: View {
     
     @State private var showAlert = false
     
-    //let menu: MenuModel.Menu
-    
-    //@Binding var cart: [MenuVO]
     @Binding var orderName: String
     @Binding var orderPrice: Int
     @Binding var orderAmount: Int

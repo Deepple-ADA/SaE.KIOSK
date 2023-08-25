@@ -15,6 +15,9 @@
 		4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF262A97458B00F532F1 /* OrderListView.swift */; };
 		4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */; };
 		4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */; };
+		B52523702A98BF66004FC2C3 /* WordTaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525236D2A98BF66004FC2C3 /* WordTaggerView.swift */; };
+		B52523712A98BF66004FC2C3 /* WordTaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525236F2A98BF66004FC2C3 /* WordTaggerViewModel.swift */; };
+		B52523732A98BF9E004FC2C3 /* WordTagger1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B52523722A98BF9E004FC2C3 /* WordTagger1.mlmodel */; };
 		B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739682A8D202E005CFC2C /* hackertonApp.swift */; };
 		B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7396A2A8D202E005CFC2C /* ContentView.swift */; };
 		B5C7396D2A8D202F005CFC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7396C2A8D202F005CFC2C /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		4221DF262A97458B00F532F1 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPaymentView.swift; sourceTree = "<group>"; };
 		4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeModel.swift; sourceTree = "<group>"; };
+		B525236D2A98BF66004FC2C3 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
+		B525236F2A98BF66004FC2C3 /* WordTaggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerViewModel.swift; sourceTree = "<group>"; };
+		B52523722A98BF9E004FC2C3 /* WordTagger1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger1.mlmodel; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,31 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+		B525236B2A98BF66004FC2C3 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				B525236C2A98BF66004FC2C3 /* MLModelView */,
+				B525236E2A98BF66004FC2C3 /* MLModelViewModel */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
+		B525236C2A98BF66004FC2C3 /* MLModelView */ = {
+			isa = PBXGroup;
+			children = (
+				B525236D2A98BF66004FC2C3 /* WordTaggerView.swift */,
+			);
+			path = MLModelView;
+			sourceTree = "<group>";
+		};
+		B525236E2A98BF66004FC2C3 /* MLModelViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B525236F2A98BF66004FC2C3 /* WordTaggerViewModel.swift */,
+			);
+			path = MLModelViewModel;
+			sourceTree = "<group>";
+		};
 		B5C7395C2A8D202E005CFC2C = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +139,8 @@
 		B5C739672A8D202E005CFC2C /* hackerton */ = {
 			isa = PBXGroup;
 			children = (
+				B52523722A98BF9E004FC2C3 /* WordTagger1.mlmodel */,
+				B525236B2A98BF66004FC2C3 /* MLModel */,
 				B5C739942A934D5E005CFC2C /* Info.plist */,
 				B5C739682A8D202E005CFC2C /* hackertonApp.swift */,
 				4221DF192A97258E00F532F1 /* View */,
@@ -202,8 +235,11 @@
 				4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */,
 				4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */,
 				4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */,
+				B52523712A98BF66004FC2C3 /* WordTaggerViewModel.swift in Sources */,
+				B52523702A98BF66004FC2C3 /* WordTaggerView.swift in Sources */,
 				4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */,
 				B5C739772A8D23E8005CFC2C /* OrderButtonView.swift in Sources */,
+				B52523732A98BF9E004FC2C3 /* WordTagger1.mlmodel in Sources */,
 				4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */,
 				4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */,
 				4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */,
@@ -337,7 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = X32GZ3NKQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
@@ -367,7 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = X32GZ3NKQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;

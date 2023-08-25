@@ -85,6 +85,8 @@ struct OrderButtonView: View {
                     result.append(speechManager.outputText)
                     print(result)
                     speechManager.stopRecording()
+
+                    
                 } else {
                     speechManager.startRecording()
                 }

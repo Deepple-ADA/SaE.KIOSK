@@ -10,23 +10,23 @@ import SwiftUI
 struct MenuCardView: View {
     var body: some View {
         HStack {
-            Image("snack1")
+            product.새우깡.item.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 178, height: 178)
                 .clipped()
             VStack(alignment: .leading) {
-                Text("새우깡")
+                Text(product.새우깡.item.name)
                   .font(
                     Font.custom("Inter", size: 48)
                       .weight(.bold)
                   )
                   .foregroundColor(.black)
-                Text("새우새우새우새우새우새우새우새우")
+                Text(product.새우깡.item.desc)
                   .font(Font.custom("Inter", size: 24))
                   .foregroundColor(.black)
                   .frame(width: 224, alignment: .topLeading)
-                Text("₩ 100,000")
+                Text("₩ \(product.새우깡.item.price)")
                   .font(
                     Font.custom("Inter", size: 20)
                       .weight(.bold)

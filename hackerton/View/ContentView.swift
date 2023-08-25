@@ -11,8 +11,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 32) {
-                advertisementView
-                bottomView
+                //advertisementView
+                //bottomView
+                OrderButtonView()
             }
         }
     }

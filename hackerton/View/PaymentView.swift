@@ -42,7 +42,7 @@ struct PaymentView: View {
     
     private var backBtn: some View {
         Button {
-            stack.removeLast()
+            dismiss()
         } label: {
             HStack{
                 Image("arrow")

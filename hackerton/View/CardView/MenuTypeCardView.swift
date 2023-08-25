@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MenuTypeCardView: View {
-    let menu : MenuModel
     var body: some View {
         HStack(spacing: 0) {
               Image("snack1")
@@ -36,8 +35,8 @@ struct MenuTypeCardView: View {
     }
 }
 
-//struct MenuTypeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuTypeCardView()
-//    }
-//}
+struct MenuTypeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuTypeCardView()
+    }
+}

@@ -11,7 +11,7 @@ struct MenuModel {
     enum product {
         enum type : String {
             case Snack = "스낵"
-            case Drink = "음료"
+            case Beverage = "음료"
             case Coffee = "커피"
         }
         enum snack {
@@ -22,7 +22,7 @@ struct MenuModel {
             case 마가렛드
             case 후레쉬베리
         }
-        enum drink {
+        enum beverage {
             case 콜라
             case 물
             case 핫식스

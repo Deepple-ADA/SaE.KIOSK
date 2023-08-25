@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var stack = NavigationPath()
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $stack) {
             VStack(spacing: 32) {
                 advertisementView
-                bottomView
+                HStack{
+                    bottomLeftView
+                    orderBtn
+                }
             }
         }
     }
@@ -26,7 +31,7 @@ struct ContentView: View {
             )
     }
     
-    private var bottomView: some View {
+    private var bottomLeftView: some View {
         HStack(spacing: 30){
             VStack(spacing: 53) {
                 Image("smileFace")
@@ -45,16 +50,16 @@ struct ContentView: View {
             }
             .font(.system(size: 36))
             .frame(width: 464, height: 604)
-            VStack {
-                Button {
-                    
-                } label: {
-                    Image("orderBtn")
-                }
-            }
-            .frame(width: 464, height: 604)
         }
     }
+    
+    private var orderBtn: some View {
+        NavigationLink(destination: MenuView(stack: $stack)) {
+            Image("orderBtn")
+                .frame(width: 464, height: 604)
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -8,23 +8,61 @@
 import SwiftUI
 
 struct PaymentView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Binding var stack: NavigationPath
+    
     var body: some View {
-        VStack(spacing: 63){
+        NavigationStack(path: $stack) {
+            VStack(spacing: 63){
+                HStack(spacing: 250) {
+                    backBtn
+                    title
+                    Spacer()
+                }
+                .padding(.leading, 35)
+                .frame(alignment: .leading)
+                Spacer().frame(height: 46)
+                payByCard
+                payByApplePay
+                Spacer()
+            }
+            .padding(.top, 66)
+        }
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    private var title: some View {
+        HStack {
             Text("결제")
                 .font(.system(size: 48, weight: .bold))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.black)
-            Spacer().frame(height: 46)
-            payByCard
-            payByApplePay
-            Spacer()
         }
-        .padding(.top, 66)
+    }
+    
+    private var backBtn: some View {
+        Button {
+            stack.removeLast()
+        } label: {
+            HStack{
+                Image("arrow")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 39, height: 32)
+                Text("뒤로 가기")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(Color.AccentPrimary)
+            }
+            .foregroundColor(.clear)
+            .frame(width: 191, height: 68)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
+        }
     }
     
     private var payByCard: some View {
-        Button {
-            
+        NavigationLink {
+            AfterPaymentView(stack: $stack)
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -53,9 +91,10 @@ struct PaymentView: View {
                 )
         }
     }
+    
     private var payByApplePay: some View {
-        Button {
-            
+        NavigationLink {
+            AfterPaymentView(stack: $stack)
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -85,26 +124,11 @@ struct PaymentView: View {
         }
         
     }
-    private var backBtn: some View {
-        HStack{
-            Image("arrow")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 39, height: 32)
-            Text("뒤로 가기")
-                .font(.system(size: 24, weight: .bold))
-                .foregroundColor(Color.AccentPrimary)
-        }
-        .foregroundColor(.clear)
-        .frame(width: 191, height: 68)
-        .background(Color.BackgroundSecondary)
-        .cornerRadius(32)
-    }
     
 }
 
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentView()
+        PaymentView(stack: .constant(NavigationPath()))
     }
 }

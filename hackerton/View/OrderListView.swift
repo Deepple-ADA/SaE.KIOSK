@@ -8,21 +8,59 @@
 import SwiftUI
 
 struct OrderListView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Binding var stack: NavigationPath
     let menu = MenuModel.Beverage.allCases.randomElement()!.description
     
     var body: some View {
-        VStack {
-            HStack(spacing: 200) {
-                backBtn
-                Text("주문 목록")
-                    .font(.system(size: 48, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
+        NavigationStack(path: $stack) {
+            VStack {
+                HStack(spacing: 200) {
+                    backBtn
+                    title
+                    Spacer()
+                }
+                .padding(.leading, 35)
+                .frame(alignment: .leading)
+                orderMenuListView
+                HStack {
+                    bottomInfoView
+                    Spacer()
+                    goToPaymentViewBtn
+                }
             }
-            .padding(.leading, 35)
-            .frame(alignment: .leading)
-            
-            ScrollView{
+        }
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    private var title: some View {
+        Text("주문 목록")
+            .font(.system(size: 48, weight: .bold))
+            .foregroundColor(.black)
+    }
+    
+    private var backBtn: some View {
+        Button {
+            dismiss()
+        } label: {
+            HStack{
+                Image("arrow")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 39, height: 32)
+                Text("뒤로 가기")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(Color.AccentPrimary)
+            }
+            .foregroundColor(.clear)
+            .frame(width: 191, height: 68)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
+        }
+    }
+    
+    private var orderMenuListView: some View {
+        ScrollView{
             LazyVStack(alignment: .center){
                 //cart: [MenuVO]를 ForEach로 돌려야할듯
                     ForEach(0..<3) { _ in // 원하는 숫자로 변경
@@ -37,52 +75,41 @@ struct OrderListView: View {
                         .background(Color.BackgroundSecondary)
                         .frame(width: 960, height: 1006)
             )
-           
-            
-            
-            HStack(spacing: 27) {
-                Image("smileIcon")
-                Text("₩ 100,000")
-                    .font(.system(size: 64, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 74))
-                        .foregroundColor(.white)
-                    Text("결제")
-                        .font(.system(size: 48, weight: .bold))
-                        .foregroundColor(.white)
-                }
-                .frame(width: 276, height: 118)
-                .background(Color.AccentSecondary)
-                .cornerRadius(32)
-            }
-            .padding(.leading, 35)
-            .padding(.trailing, 29)
-        }
-        
     }
     
-    private var backBtn: some View {
-        HStack{
-            Image("arrow")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 39, height: 32)
-            Text("뒤로 가기")
-                .font(.system(size: 24, weight: .bold))
-                .foregroundColor(Color.AccentPrimary)
+    private var bottomInfoView: some View {
+        HStack(spacing: 27) {
+            Image("smileIcon")
+            Text("₩ 100,000")
+                .font(.system(size: 64, weight: .bold))
+                .foregroundColor(.black)
         }
-        .foregroundColor(.clear)
-        .frame(width: 191, height: 68)
-        .background(Color.BackgroundSecondary)
-        .cornerRadius(32)
+        .padding(.leading, 35)
     }
+    
+    private var goToPaymentViewBtn: some View {
+        NavigationLink {
+            PaymentView(stack: $stack)
+        } label: {
+            HStack {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 74))
+                    .foregroundColor(.white)
+                Text("결제")
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(.white)
+            }
+            .frame(width: 276, height: 118)
+            .background(Color.AccentSecondary)
+            .cornerRadius(32)
+            .padding(.trailing, 29)
+        }
+    }
+    
 }
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView()
+        OrderListView(stack: .constant(NavigationPath()))
     }
 }

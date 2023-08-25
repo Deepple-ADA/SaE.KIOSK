@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
+    
     var body: some View {
         VStack(spacing: 28) {
             HStack(spacing: 40) {
-                MenuTypeCardView()
-                MenuTypeCardView()
-                MenuTypeCardView()
+                ForEach(MenuModel.ProductType.allCases) { productType in
+                    Button {
+                        withAnimation {
+                            selectedProductType = productType
+                        }
+                    } label: {
+                        MenuTypeCardView(selectedProductType: $selectedProductType, productType: productType)
+                    }
+                }
             }
             .foregroundColor(.clear)
             .frame(width: 960, height: 168)

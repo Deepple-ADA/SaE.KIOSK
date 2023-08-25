@@ -16,6 +16,8 @@
 		4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */; };
 		4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */; };
 		4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF302A989DE200F532F1 /* PaymentView.swift */; };
+		4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF322A98B4F800F532F1 /* Menuable.swift */; };
+		4221DF382A98BAC500F532F1 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF372A98BAC500F532F1 /* IntExtension.swift */; };
 		B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739682A8D202E005CFC2C /* hackertonApp.swift */; };
 		B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7396A2A8D202E005CFC2C /* ContentView.swift */; };
 		B5C7396D2A8D202F005CFC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7396C2A8D202F005CFC2C /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPaymentView.swift; sourceTree = "<group>"; };
 		4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCardView.swift; sourceTree = "<group>"; };
 		4221DF302A989DE200F532F1 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		4221DF322A98B4F800F532F1 /* Menuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menuable.swift; sourceTree = "<group>"; };
+		4221DF372A98BAC500F532F1 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				4221DF1B2A9725B600F532F1 /* MenuModel.swift */,
+				4221DF322A98B4F800F532F1 /* Menuable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4221DF202A97275F00F532F1 /* ColorExtension.swift */,
+				4221DF372A98BAC500F532F1 /* IntExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -147,6 +153,8 @@
 			dependencies = (
 			);
 			name = hackerton;
+			packageProductDependencies = (
+			);
 			productName = hackerton;
 			productReference = B5C739652A8D202E005CFC2C /* hackerton.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +183,8 @@
 				Base,
 			);
 			mainGroup = B5C7395C2A8D202E005CFC2C;
+			packageReferences = (
+			);
 			productRefGroup = B5C739662A8D202E005CFC2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -210,7 +220,9 @@
 				B5C739772A8D23E8005CFC2C /* OrderButtonView.swift in Sources */,
 				4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */,
 				4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */,
+				4221DF382A98BAC500F532F1 /* IntExtension.swift in Sources */,
 				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
+				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
 			);

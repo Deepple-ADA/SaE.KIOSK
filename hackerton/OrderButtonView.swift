@@ -31,11 +31,11 @@ class SpeechManager: ObservableObject {
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else { fatalError("recognitionRequest - error") }
         recognitionRequest.shouldReportPartialResults = true //true -> 실시간으로 변환
-       // recognitionRequest.shouldReportPartialResults = false //false -> 종료 후 한꺼번에 변환
+        // recognitionRequest.shouldReportPartialResults = false //false -> 종료 후 한꺼번에 변환
         
-        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [self] result, error in
             if let result = result {
-                self.outputText = result.bestTranscription.formattedString
+                self.outputText = convert(result.bestTranscription.formattedString)
             } else if let error = error {
                 print(error)
             }
@@ -53,7 +53,7 @@ class SpeechManager: ObservableObject {
         do {
             try audioEngine.start()
         } catch {
-           // print("audioEngine - Error : \(error)")
+            // print("audioEngine - Error : \(error)")
         }
         
         
@@ -65,6 +65,16 @@ class SpeechManager: ObservableObject {
         recognitionRequest?.endAudio()
         isRecording = false
         recognitionTask?.cancel()
+    }
+    
+    func convert(_ inputText: String) -> String {
+        var convertedText = inputText
+        //단어 바꾸고 싶으면 여기 추가해서 바꿔주세요
+        let wordPair = [("세계", "3개")]
+        for (word1, word2) in wordPair {
+            convertedText = convertedText.replacingOccurrences(of: word1, with: word2)
+        }
+        return convertedText
     }
     
     
@@ -90,7 +100,7 @@ struct OrderButtonView: View {
                     wordTaggerView.$input_text.wrappedValue = speechManager.outputText
                     print(result)
                     speechManager.stopRecording()
-
+                    
                     
                 } else {
                     speechManager.startRecording()

@@ -68,7 +68,7 @@ struct OrderCardView: View {
             } label: {
                 Rectangle()
                     .foregroundColor(.clear)
-                    .frame(width: 145, height: 203)
+                    .frame(width: 145, height: 200)
                     .background(Color(red: 217/255, green: 217/255, blue: 217/255))
                     .cornerRadius(16)
                     .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)

@@ -14,7 +14,8 @@
 		4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF242A97429400F532F1 /* MenuTypeCardView.swift */; };
 		4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF262A97458B00F532F1 /* OrderListView.swift */; };
 		4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */; };
-		4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */; };
+		4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */; };
+		4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF302A989DE200F532F1 /* PaymentView.swift */; };
 		B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739682A8D202E005CFC2C /* hackertonApp.swift */; };
 		B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7396A2A8D202E005CFC2C /* ContentView.swift */; };
 		B5C7396D2A8D202F005CFC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7396C2A8D202F005CFC2C /* Assets.xcassets */; };
@@ -30,7 +31,8 @@
 		4221DF242A97429400F532F1 /* MenuTypeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeCardView.swift; sourceTree = "<group>"; };
 		4221DF262A97458B00F532F1 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPaymentView.swift; sourceTree = "<group>"; };
-		4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeModel.swift; sourceTree = "<group>"; };
+		4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCardView.swift; sourceTree = "<group>"; };
+		4221DF302A989DE200F532F1 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				B5C7396A2A8D202E005CFC2C /* ContentView.swift */,
 				4221DF1D2A9725D400F532F1 /* MenuView.swift */,
 				4221DF262A97458B00F532F1 /* OrderListView.swift */,
+				4221DF302A989DE200F532F1 /* PaymentView.swift */,
 				4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */,
 			);
 			path = View;
@@ -67,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				4221DF1B2A9725B600F532F1 /* MenuModel.swift */,
-				4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +87,7 @@
 			children = (
 				4221DF222A9735BC00F532F1 /* MenuCardView.swift */,
 				4221DF242A97429400F532F1 /* MenuTypeCardView.swift */,
+				4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -199,14 +202,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4221DF232A9735BC00F532F1 /* MenuCardView.swift in Sources */,
+				4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */,
 				4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */,
 				4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */,
 				4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */,
 				4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */,
 				B5C739772A8D23E8005CFC2C /* OrderButtonView.swift in Sources */,
-				4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */,
 				4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */,
 				4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */,
+				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
 			);

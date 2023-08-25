@@ -43,7 +43,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .font(Font.custom("Inter", size: 36))
+            .font(.system(size: 36))
             .frame(width: 464, height: 604)
             VStack {
                 Button {

@@ -10,20 +10,17 @@ import SwiftUI
 struct MenuTypeCardView: View {
     var body: some View {
         HStack(spacing: 0) {
-              Image("snack1")
+            Image("snack1")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 100)
             VStack{
                 Text("스낵")
-                  .font(
-                    Font.custom("SF Pro", size: 36)
-                      .weight(.medium)
-                  )
-                  .foregroundColor(.black)
+                    .font(.system(size: 36, weight: .medium))
+                    .foregroundColor(.black)
                 Text("Snack")
-                  .font(Font.custom("SF Pro", size: 24))
-                  .foregroundColor(.black)
+                    .font(.system(size: 24))
+                    .foregroundColor(.black)
             }
         }
         .padding(.leading, 45)

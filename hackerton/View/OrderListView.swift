@@ -8,44 +8,60 @@
 import SwiftUI
 
 struct OrderListView: View {
+    let menu = MenuModel.Beverage.allCases.randomElement()!.description
+    
     var body: some View {
         VStack {
             HStack(spacing: 200) {
                 backBtn
                 Text("주문 목록")
                     .font(.system(size: 48, weight: .bold))
-                  .foregroundColor(.black)
+                    .foregroundColor(.black)
                 Spacer()
             }
             .padding(.leading, 35)
             .frame(alignment: .leading)
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 960, height: 1006)
-              .background(Color.BackgroundSecondary)
-              .cornerRadius(32)
+            
+            ScrollView{
+            LazyVStack(alignment: .center){
+                //cart: [MenuVO]를 ForEach로 돌려야할듯
+                    ForEach(0..<3) { _ in // 원하는 숫자로 변경
+                        OrderCardView(menu: menu)
+                    }
+                }
+            }
+            .padding(.top, 60)
+            .background(
+                RoundedRectangle(cornerRadius: 32)
+                        .foregroundColor(.clear)
+                        .background(Color.BackgroundSecondary)
+                        .frame(width: 960, height: 1006)
+            )
+           
+            
+            
             HStack(spacing: 27) {
                 Image("smileIcon")
                 Text("₩ 100,000")
-                  .font(.system(size: 64, weight: .bold))
-                  .foregroundColor(.black)
+                    .font(.system(size: 64, weight: .bold))
+                    .foregroundColor(.black)
                 Spacer()
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 74))
-                    .foregroundColor(.white)
+                        .foregroundColor(.white)
                     Text("결제")
                         .font(.system(size: 48, weight: .bold))
-                      .foregroundColor(.white)
+                        .foregroundColor(.white)
                 }
-                  .frame(width: 276, height: 118)
-                  .background(Color.AccentSecondary)
-                  .cornerRadius(32)
+                .frame(width: 276, height: 118)
+                .background(Color.AccentSecondary)
+                .cornerRadius(32)
             }
             .padding(.leading, 35)
             .padding(.trailing, 29)
         }
-       
+        
     }
     
     private var backBtn: some View {

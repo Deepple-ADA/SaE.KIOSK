@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OrderListView: View {
+    let menu = MenuModel.Beverage.allCases.randomElement()!.description
+    
     var body: some View {
         VStack {
             HStack(spacing: 200) {
@@ -19,11 +21,24 @@ struct OrderListView: View {
             }
             .padding(.leading, 35)
             .frame(alignment: .leading)
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 960, height: 1006)
-              .background(Color.BackgroundSecondary)
-              .cornerRadius(32)
+            
+            ZStack{
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .background(Color.BackgroundSecondary)
+                    .cornerRadius(32)
+                
+                VStack(alignment: .center){
+                    OrderCardView(menu: menu)
+                    OrderCardView(menu: menu)
+                    OrderCardView(menu: menu)
+                }
+
+                
+            }
+            .frame(width: 960, height: 1006, alignment: .top)
+
+            
             HStack(spacing: 27) {
                 Image("smileIcon")
                 Text("₩ 100,000")

@@ -36,7 +36,7 @@ struct RecommendView: View {
                 .frame(width: 960, height: 873)
                 .background(Color.BackgroundSecondary)
                 .cornerRadius(32)
-
+            
         }
     }
 }

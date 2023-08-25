@@ -97,7 +97,9 @@ struct MenuView: View {
     }
     
     private var goToOrderListBtn: some View {
-        NavigationLink(destination: OrderListView(stack: $stack)) {
+        NavigationLink {
+            OrderListView(stack: $stack)
+        }label: {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)

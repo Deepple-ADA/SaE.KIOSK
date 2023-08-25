@@ -54,7 +54,9 @@ struct ContentView: View {
     }
     
     private var orderBtn: some View {
-        NavigationLink(destination: MenuView(stack: $stack)) {
+        NavigationLink {
+            MenuView(stack: $stack)
+        } label: {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }

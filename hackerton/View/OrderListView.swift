@@ -64,17 +64,17 @@ struct OrderListView: View {
         ScrollView{
             LazyVStack(alignment: .center){
                 //cart: [MenuVO]를 ForEach로 돌려야할듯
-                    ForEach(0..<3) { _ in // 원하는 숫자로 변경
-                        OrderCardView(menu: menu)
-                    }
+                ForEach(0..<3) { _ in // 원하는 숫자로 변경
+                    OrderCardView(menu: menu)
                 }
             }
-            .padding(.top, 60)
-            .background(
-                RoundedRectangle(cornerRadius: 32)
-                        .fill(Color.BackgroundSecondary)
-                        .frame(width: 960, height: 1006)
-            )
+        }
+        .padding(.top, 60)
+        .background(
+            RoundedRectangle(cornerRadius: 32)
+                .fill(Color.BackgroundSecondary)
+                .frame(width: 960, height: 1006)
+        )
     }
     
     private var bottomInfoView: some View {

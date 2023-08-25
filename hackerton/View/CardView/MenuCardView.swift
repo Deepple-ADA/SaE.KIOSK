@@ -31,12 +31,12 @@ struct MenuCardView: View {
                     .foregroundColor(Color.PointPrimary)
                     .frame(width: 224, alignment: .topTrailing)
             }
+            .padding(.trailing, 28)
         }
-//        .foregroundColor(.clear)
         .frame(width: 431, height: 203)
-        .background(isSelected ? .white : .clear)
+        .background(isSelected ? Color.AccentSecondary : .white)
         .cornerRadius(16)
-        .shadow(color: isSelected ? .black.opacity(0.15) : .clear, radius: 8, x: 0, y: 4)
+        .shadow(color: isSelected ? .black.opacity(0.15) : .black.opacity(0.01), radius: 8, x: 0, y: 4)
     }
 }
 

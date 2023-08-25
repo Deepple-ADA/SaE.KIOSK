@@ -11,8 +11,7 @@ import SwiftUI
 struct hackertonApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            WordTaggerView()
+            ContentView()
         }
     }
 }

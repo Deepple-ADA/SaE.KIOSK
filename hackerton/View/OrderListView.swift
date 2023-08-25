@@ -8,65 +8,97 @@
 import SwiftUI
 
 struct OrderListView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Binding var stack: NavigationPath
+    
     var body: some View {
-        VStack {
-            HStack(spacing: 200) {
-                backBtn
-                Text("주문 목록")
-                    .font(.system(size: 48, weight: .bold))
-                  .foregroundColor(.black)
-                Spacer()
-            }
-            .padding(.leading, 35)
-            .frame(alignment: .leading)
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 960, height: 1006)
-              .background(Color.BackgroundSecondary)
-              .cornerRadius(32)
-            HStack(spacing: 27) {
-                Image("smileIcon")
-                Text("₩ 100,000")
-                  .font(.system(size: 64, weight: .bold))
-                  .foregroundColor(.black)
-                Spacer()
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 74))
-                    .foregroundColor(.white)
-                    Text("결제")
-                        .font(.system(size: 48, weight: .bold))
-                      .foregroundColor(.white)
+        NavigationStack(path: $stack) {
+            VStack {
+                HStack(spacing: 200) {
+                    backBtn
+                    title
+                    Spacer()
                 }
-                  .frame(width: 276, height: 118)
-                  .background(Color.AccentSecondary)
-                  .cornerRadius(32)
+                .padding(.leading, 35)
+                .frame(alignment: .leading)
+                orderMenuListView
+                HStack {
+                    bottomInfoView
+                    Spacer()
+                    goToPaymentViewBtn
+                }
             }
-            .padding(.leading, 35)
-            .padding(.trailing, 29)
         }
-       
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    private var title: some View {
+        Text("주문 목록")
+            .font(.system(size: 48, weight: .bold))
+            .foregroundColor(.black)
     }
     
     private var backBtn: some View {
-        HStack{
-            Image("arrow")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 39, height: 32)
-            Text("뒤로 가기")
-                .font(.system(size: 24, weight: .bold))
-                .foregroundColor(Color.AccentPrimary)
+        Button {
+            dismiss()
+        } label: {
+            HStack{
+                Image("arrow")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 39, height: 32)
+                Text("뒤로 가기")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(Color.AccentPrimary)
+            }
+            .foregroundColor(.clear)
+            .frame(width: 191, height: 68)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
         }
-        .foregroundColor(.clear)
-        .frame(width: 191, height: 68)
-        .background(Color.BackgroundSecondary)
-        .cornerRadius(32)
     }
+    
+    private var orderMenuListView: some View {
+        Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 960, height: 1006)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
+    }
+    
+    private var bottomInfoView: some View {
+        HStack(spacing: 27) {
+            Image("smileIcon")
+            Text("₩ 100,000")
+                .font(.system(size: 64, weight: .bold))
+                .foregroundColor(.black)
+        }
+        .padding(.leading, 35)
+    }
+    
+    private var goToPaymentViewBtn: some View {
+        NavigationLink {
+            PaymentView(stack: $stack)
+        } label: {
+            HStack {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 74))
+                    .foregroundColor(.white)
+                Text("결제")
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(.white)
+            }
+            .frame(width: 276, height: 118)
+            .background(Color.AccentSecondary)
+            .cornerRadius(32)
+            .padding(.trailing, 29)
+        }
+    }
+    
 }
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView()
+        OrderListView(stack: .constant(NavigationPath()))
     }
 }

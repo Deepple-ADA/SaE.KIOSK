@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol Menuable {
+protocol Menuable : Identifiable {
     var description: MenuModel.Menu { get }
 }

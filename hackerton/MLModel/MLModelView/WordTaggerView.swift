@@ -9,7 +9,6 @@ import SwiftUI
 import CoreML
 
 
-
 struct WordTaggerView: View {
     @State var input_text = ""
     @State var predictionTokens: [String]?
@@ -17,6 +16,7 @@ struct WordTaggerView: View {
     @State var isShowingSheet = false
     
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
+    
     var body: some View {
         ZStack {
             Color.white
@@ -24,11 +24,14 @@ struct WordTaggerView: View {
             VStack {
                 VStack(alignment: .leading) {
                     Spacer()
-                    TextField("주문하실 물품과 수량을 입력해주세요", text: $input_text, axis: .vertical)
+                    TextField("\(input_text)", text: $input_text, axis: .vertical)
                         .foregroundColor(.black)
                     Divider()
                     Spacer()
                 }
+                
+                OrderButtonView(wordTaggerView: self)
+                
                 Button {
                     tag(text: input_text)
                     wordTaggerViewModel.tag(text: input_text)
@@ -52,6 +55,7 @@ struct WordTaggerView: View {
             }
             .padding()
         }
+
     }
     
     func tag(text: String){
@@ -132,8 +136,8 @@ struct WordArrayView: View {
     }
 }
 
-struct WordTaggerView_Previews: PreviewProvider {
-    static var previews: some View {
-        WordTaggerView()
-    }
-}
+//struct WordTaggerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WordTaggerView(result: $r)
+//    }
+//}

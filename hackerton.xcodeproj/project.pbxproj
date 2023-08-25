@@ -15,6 +15,10 @@
 		4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF262A97458B00F532F1 /* OrderListView.swift */; };
 		4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */; };
 		4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */; };
+		B2EDD6192A98F1F90017EEF8 /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD6182A98F1F90017EEF8 /* MenuCreator.swift */; };
+		B2EDD61C2A98F2770017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD61B2A98F2770017EEF8 /* WordCorrector */; };
+		B2EDD61E2A9900DF0017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD61D2A9900DE0017EEF8 /* StringExtension.swift */; };
+		B2EDD6262A9902C30017EEF8 /* hackertonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD6252A9902C30017EEF8 /* hackertonTests.swift */; };
 		B52523702A98BF66004FC2C3 /* WordTaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525236D2A98BF66004FC2C3 /* WordTaggerView.swift */; };
 		B52523712A98BF66004FC2C3 /* WordTaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525236F2A98BF66004FC2C3 /* WordTaggerViewModel.swift */; };
 		B52523732A98BF9E004FC2C3 /* WordTagger1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B52523722A98BF9E004FC2C3 /* WordTagger1.mlmodel */; };
@@ -25,6 +29,16 @@
 		B5C739772A8D23E8005CFC2C /* OrderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739762A8D23E8005CFC2C /* OrderButtonView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B2EDD6272A9902C30017EEF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5C7395D2A8D202E005CFC2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5C739642A8D202E005CFC2C;
+			remoteInfo = hackerton;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4221DF1B2A9725B600F532F1 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		4221DF1D2A9725D400F532F1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -34,6 +48,10 @@
 		4221DF262A97458B00F532F1 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPaymentView.swift; sourceTree = "<group>"; };
 		4221DF2B2A97526E00F532F1 /* MenuTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeModel.swift; sourceTree = "<group>"; };
+		B2EDD6182A98F1F90017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
+		B2EDD61D2A9900DE0017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		B2EDD6232A9902C30017EEF8 /* hackertonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackertonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2EDD6252A9902C30017EEF8 /* hackertonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonTests.swift; sourceTree = "<group>"; };
 		B525236D2A98BF66004FC2C3 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
 		B525236F2A98BF66004FC2C3 /* WordTaggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerViewModel.swift; sourceTree = "<group>"; };
 		B52523722A98BF9E004FC2C3 /* WordTagger1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger1.mlmodel; sourceTree = "<group>"; };
@@ -47,10 +65,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B2EDD6202A9902C30017EEF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C739622A8D202E005CFC2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EDD61C2A98F2770017EEF8 /* WordCorrector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4221DF202A97275F00F532F1 /* ColorExtension.swift */,
+				B2EDD61D2A9900DE0017EEF8 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -95,11 +122,20 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+		B2EDD6242A9902C30017EEF8 /* hackertonTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2EDD6252A9902C30017EEF8 /* hackertonTests.swift */,
+			);
+			path = hackertonTests;
+			sourceTree = "<group>";
+		};
 		B525236B2A98BF66004FC2C3 /* MLModel */ = {
 			isa = PBXGroup;
 			children = (
 				B525236C2A98BF66004FC2C3 /* MLModelView */,
 				B525236E2A98BF66004FC2C3 /* MLModelViewModel */,
+				B2EDD6182A98F1F90017EEF8 /* MenuCreator.swift */,
 			);
 			path = MLModel;
 			sourceTree = "<group>";
@@ -124,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				B5C739672A8D202E005CFC2C /* hackerton */,
+				B2EDD6242A9902C30017EEF8 /* hackertonTests */,
 				B5C739662A8D202E005CFC2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B5C739652A8D202E005CFC2C /* hackerton.app */,
+				B2EDD6232A9902C30017EEF8 /* hackertonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +202,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B2EDD6222A9902C30017EEF8 /* hackertonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2EDD6292A9902C30017EEF8 /* Build configuration list for PBXNativeTarget "hackertonTests" */;
+			buildPhases = (
+				B2EDD61F2A9902C30017EEF8 /* Sources */,
+				B2EDD6202A9902C30017EEF8 /* Frameworks */,
+				B2EDD6212A9902C30017EEF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2EDD6282A9902C30017EEF8 /* PBXTargetDependency */,
+			);
+			name = hackertonTests;
+			productName = hackertonTests;
+			productReference = B2EDD6232A9902C30017EEF8 /* hackertonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B5C739642A8D202E005CFC2C /* hackerton */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5C739732A8D202F005CFC2C /* Build configuration list for PBXNativeTarget "hackerton" */;
@@ -177,6 +233,9 @@
 			dependencies = (
 			);
 			name = hackerton;
+			packageProductDependencies = (
+				B2EDD61B2A98F2770017EEF8 /* WordCorrector */,
+			);
 			productName = hackerton;
 			productReference = B5C739652A8D202E005CFC2C /* hackerton.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +250,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					B2EDD6222A9902C30017EEF8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = B5C739642A8D202E005CFC2C;
+					};
 					B5C739642A8D202E005CFC2C = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -205,16 +268,27 @@
 				Base,
 			);
 			mainGroup = B5C7395C2A8D202E005CFC2C;
+			packageReferences = (
+				B2EDD61A2A98F2770017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */,
+			);
 			productRefGroup = B5C739662A8D202E005CFC2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B5C739642A8D202E005CFC2C /* hackerton */,
+				B2EDD6222A9902C30017EEF8 /* hackertonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B2EDD6212A9902C30017EEF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C739632A8D202E005CFC2C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +301,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B2EDD61F2A9902C30017EEF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2EDD6262A9902C30017EEF8 /* hackertonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C739612A8D202E005CFC2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +317,7 @@
 				4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */,
 				4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */,
 				4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */,
+				B2EDD61E2A9900DF0017EEF8 /* StringExtension.swift in Sources */,
 				B52523712A98BF66004FC2C3 /* WordTaggerViewModel.swift in Sources */,
 				B52523702A98BF66004FC2C3 /* WordTaggerView.swift in Sources */,
 				4221DF2A2A9748AC00F532F1 /* AfterPaymentView.swift in Sources */,
@@ -243,6 +326,7 @@
 				4221DF2C2A97526E00F532F1 /* MenuTypeModel.swift in Sources */,
 				4221DF212A97275F00F532F1 /* ColorExtension.swift in Sources */,
 				4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */,
+				B2EDD6192A98F1F90017EEF8 /* MenuCreator.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
 			);
@@ -250,7 +334,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B2EDD6282A9902C30017EEF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5C739642A8D202E005CFC2C /* hackerton */;
+			targetProxy = B2EDD6272A9902C30017EEF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B2EDD62A2A9902C30017EEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BHXWP5PYW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jojosaekkie.hackertonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackerton.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hackerton";
+			};
+			name = Debug;
+		};
+		B2EDD62B2A9902C30017EEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BHXWP5PYW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jojosaekkie.hackertonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hackerton.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hackerton";
+			};
+			name = Release;
+		};
 		B5C739712A8D202F005CFC2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -428,6 +556,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B2EDD6292A9902C30017EEF8 /* Build configuration list for PBXNativeTarget "hackertonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2EDD62A2A9902C30017EEF8 /* Debug */,
+				B2EDD62B2A9902C30017EEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5C739602A8D202E005CFC2C /* Build configuration list for PBXProject "hackerton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -447,6 +584,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2EDD61A2A98F2770017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vanism2091/WordCorrector";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2EDD61B2A98F2770017EEF8 /* WordCorrector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2EDD61A2A98F2770017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */;
+			productName = WordCorrector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5C7395D2A8D202E005CFC2C /* Project object */;
 }

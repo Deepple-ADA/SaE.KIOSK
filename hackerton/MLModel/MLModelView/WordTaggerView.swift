@@ -17,7 +17,7 @@ struct WordTaggerView: View {
     @State var isShowingSheet = false
     
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
-    
+
     var body: some View {
         ZStack {
             Color.white
@@ -59,7 +59,7 @@ struct WordTaggerView: View {
 
     }
     
-    func tag(text: String){
+    func tag(text: String) {
         do {
             let config = MLModelConfiguration()
             let model = try WordTagger1(configuration: config)

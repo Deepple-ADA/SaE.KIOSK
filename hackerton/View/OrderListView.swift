@@ -13,10 +13,7 @@ struct OrderListView: View {
             HStack(spacing: 200) {
                 backBtn
                 Text("주문 목록")
-                  .font(
-                    Font.custom("Inter", size: 48)
-                      .weight(.bold)
-                  )
+                    .font(.system(size: 48, weight: .bold))
                   .foregroundColor(.black)
                 Spacer()
             }
@@ -30,10 +27,7 @@ struct OrderListView: View {
             HStack(spacing: 27) {
                 Image("smileIcon")
                 Text("₩ 100,000")
-                  .font(
-                    Font.custom("Inter", size: 64)
-                      .weight(.bold)
-                  )
+                  .font(.system(size: 64, weight: .bold))
                   .foregroundColor(.black)
                 Spacer()
                 HStack {
@@ -41,14 +35,11 @@ struct OrderListView: View {
                         .font(.system(size: 74))
                     .foregroundColor(.white)
                     Text("결제")
-                      .font(
-                        Font.custom("Inter", size: 48)
-                          .weight(.bold)
-                      )
+                        .font(.system(size: 48, weight: .bold))
                       .foregroundColor(.white)
                 }
                   .frame(width: 276, height: 118)
-                  .background(Color(red: 1, green: 0.48, blue: 0.31))
+                  .background(Color.AccentSecondary)
                   .cornerRadius(32)
             }
             .padding(.leading, 35)
@@ -64,11 +55,8 @@ struct OrderListView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 39, height: 32)
             Text("뒤로 가기")
-                .font(
-                    Font.custom("Inter", size: 24)
-                        .weight(.bold)
-                )
-                .foregroundColor(Color(red: 1, green: 0.35, blue: 0.15))
+                .font(.system(size: 24, weight: .bold))
+                .foregroundColor(Color.AccentPrimary)
         }
         .foregroundColor(.clear)
         .frame(width: 191, height: 68)

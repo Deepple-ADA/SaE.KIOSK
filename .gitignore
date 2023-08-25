@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,macos,python,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,macos,python,xcode
 
+
 ### macOS ###
 # General
 .DS_Store
@@ -301,5 +302,6 @@ iOSInjectionProject/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos,python,xcode

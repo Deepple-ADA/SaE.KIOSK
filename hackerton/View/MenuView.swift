@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
+    
     var body: some View {
         VStack(spacing: 28) {
             HStack(spacing: 40) {
-                MenuTypeCardView()
-                MenuTypeCardView()
-                MenuTypeCardView()
+                ForEach(MenuModel.ProductType.allCases) { productType in
+                    Button {
+                        withAnimation {
+                            selectedProductType = productType
+                        }
+                    } label: {
+                        MenuTypeCardView(selectedProductType: $selectedProductType, productType: productType)
+                    }
+                }
             }
             .foregroundColor(.clear)
             .frame(width: 960, height: 168)
@@ -37,17 +45,14 @@ struct MenuView: View {
                         .frame(width: 117, height: 117)
                     VStack(spacing: 13) {
                         Text("화면을 바라보고 이렇게 말씀해보세요")
-                            .font(Font.custom("Inter", size: 24))
+                            .font(.system(size: 24))
                             .foregroundColor(.TextSecondary)
                         Text("""
                         새우깡 하나 담기
                         땅콩이 들어가지 않은 메뉴 추천
                         커피 메뉴 보기
                         """)
-                        .font(
-                            Font.custom("Inter", size: 20)
-                                .weight(.bold)
-                        )
+                        .font(.system(size: 20, weight: .bold))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.Textprimary)
                     }
@@ -63,13 +68,9 @@ struct MenuView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 68, height: 86)
-                            .clipped()
                         VStack(spacing: 1) {
                             Text("주문목록")
-                                .font(
-                                    Font.custom("Inter", size: 36)
-                                        .weight(.bold)
-                                )
+                                .font(.system(size: 36, weight: .bold))
                                 .foregroundColor(.white)
                             Image("line")
                                 .foregroundColor(.clear)
@@ -77,10 +78,7 @@ struct MenuView: View {
                                 .background(Color.TextSecondary)
                             Spacer().frame(height: 2)
                             Text("항목 없음")
-                                .font(
-                                    Font.custom("Inter", size: 24)
-                                        .weight(.bold)
-                                )
+                                .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(.white.opacity(0.6))
                                 .multilineTextAlignment(.center)
                         }

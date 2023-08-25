@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var stack = NavigationPath()
     
+    
     var body: some View {
         NavigationStack(path: $stack) {
             VStack(spacing: 32) {
@@ -62,8 +63,8 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

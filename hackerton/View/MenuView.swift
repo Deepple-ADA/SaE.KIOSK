@@ -13,6 +13,8 @@ struct MenuView: View {
     let columns = [
         GridItem(.adaptive(minimum: 431))
     ]
+
+    @State private var cart: [MenuVO] = []
     
     var body: some View {
         NavigationStack(path: $stack) {
@@ -49,15 +51,15 @@ struct MenuView: View {
                             switch selectedProductType {
                             case .snack:
                                 ForEach(MenuModel.Snack.allCases) {snack in
-                                    MenuCardView(menu: snack.description)
+                                    MenuCardView(menu: snack.description, cart: $cart)
                                 }
                             case .coffee:
                                 ForEach(MenuModel.Coffee.allCases) {coffee in
-                                    MenuCardView(menu: coffee.description)
+                                    MenuCardView(menu: coffee.description, cart: $cart)
                                 }
                             case .beverage:
                                 ForEach(MenuModel.Beverage.allCases) {beverage in
-                                    MenuCardView(menu: beverage.description)
+                                    MenuCardView(menu: beverage.description, cart: $cart)
                                 }
                             }
                         }
@@ -97,7 +99,7 @@ struct MenuView: View {
     }
     
     private var goToOrderListBtn: some View {
-        NavigationLink(destination: OrderListView(stack: $stack)) {
+        NavigationLink(destination: OrderListView(stack: $stack, cart: $cart)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)
@@ -126,12 +128,13 @@ struct MenuView: View {
                     }
                 )
         }
+      
     }
     
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView(stack: .constant(NavigationPath()))
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuView(stack: .constant(NavigationPath()))
+//    }
+//}

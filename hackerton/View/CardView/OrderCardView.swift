@@ -13,7 +13,12 @@ struct OrderCardView: View {
     
     @State private var showAlert = false
     
-    let menu: MenuModel.Menu
+    //let menu: MenuModel.Menu
+    
+    //@Binding var cart: [MenuVO]
+    @Binding var orderName: String
+    @Binding var orderPrice: Int
+    @Binding var orderAmount: Int
     
     var body: some View {
         HStack{
@@ -25,15 +30,15 @@ struct OrderCardView: View {
                 .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                 .overlay(
                     HStack {
-                        Image(menu.image)
+                        Image("snack")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 178, height: 178)
                         VStack{
-                            Text(menu.name)
+                            Text(orderName)
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
-                            Text("￦ \(menu.price.decimal)")
+                            Text("￦ \(orderPrice.decimal)")
                                 .font(.system(size: 36, weight: .bold))
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.gray)
@@ -44,13 +49,13 @@ struct OrderCardView: View {
                         Spacer()
                         
                         VStack{
-                            Stepper(value: $count){
-                                Text("수량 : \(count)")
+                            Stepper(value: $orderAmount){
+                                Text("수량 : \(orderAmount)")
                                     .font(.system(size: 40))
                             }
                             .frame(width: 250)
                             
-                            Text("총액 : ￦\(count * menu.price)")
+                            Text("총액 : ￦\(orderAmount * orderPrice)")
                                 .font(.system(size: 40))
                             
                         }
@@ -96,9 +101,9 @@ struct OrderCardView: View {
 
 }
 
-struct OrderCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let menu = MenuModel.Beverage.allCases.randomElement()!.description
-        OrderCardView(menu: menu)
-    }
-}
+//struct OrderCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let menu = MenuModel.Beverage.allCases.randomElement()!.description
+//        OrderCardView(menu: menu)
+//    }
+//}

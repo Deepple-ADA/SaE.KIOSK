@@ -21,7 +21,7 @@ struct OrderListView: View {
                     Spacer()
                 }
                 .padding(.leading, 35)
-                .padding(.top, 34)
+                .padding(.top, 66)
                 .frame(alignment: .leading)
                 orderMenuListView
                 HStack {

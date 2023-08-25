@@ -15,14 +15,12 @@ struct MenuView: View {
     ]
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 28) {
-                menuTypeView
-                menuListView
-                HStack(spacing: 28){
-                    infoView
-                    goToOrderListBtn
-                }
+        VStack(spacing: 28) {
+            menuTypeView
+            menuListView
+            HStack(spacing: 28){
+                infoView
+                goToOrderListBtn
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -97,9 +95,7 @@ struct MenuView: View {
     }
     
     private var goToOrderListBtn: some View {
-        NavigationLink {
-            OrderListView(stack: $stack)
-        }label: {
+        NavigationLink(destination: OrderListView(stack: $stack)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)

@@ -12,22 +12,20 @@ struct PaymentView: View {
     @Binding var stack: NavigationPath
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 63){
-                HStack(spacing: 250) {
-                    backBtn
-                    title
-                    Spacer()
-                }
-                .padding(.leading, 35)
-                .frame(alignment: .leading)
-                Spacer().frame(height: 46)
-                payByCard
-                payByApplePay
+        VStack(spacing: 63){
+            HStack(spacing: 250) {
+                backBtn
+                title
                 Spacer()
             }
-            .padding(.top, 66)
+            .padding(.leading, 35)
+            .frame(alignment: .leading)
+            Spacer().frame(height: 46)
+            payByCard
+            payByApplePay
+            Spacer()
         }
+        .padding(.top, 66)
         .navigationBarBackButtonHidden(true)
     }
     
@@ -61,9 +59,7 @@ struct PaymentView: View {
     }
     
     private var payByCard: some View {
-        NavigationLink {
-            AfterPaymentView(stack: $stack)
-        } label: {
+        NavigationLink(destination: AfterPaymentView(stack: $stack)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 650, height: 203)
@@ -93,9 +89,7 @@ struct PaymentView: View {
     }
     
     private var payByApplePay: some View {
-        NavigationLink {
-            AfterPaymentView(stack: $stack)
-        } label: {
+        NavigationLink(destination: AfterPaymentView(stack: $stack)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 650, height: 203)

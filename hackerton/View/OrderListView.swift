@@ -13,25 +13,27 @@ struct OrderListView: View {
     let menu = MenuModel.Beverage.allCases.randomElement()!.description
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack {
-                HStack(spacing: 200) {
-                    backBtn
-                    title
-                    Spacer()
-                }
-                .padding(.leading, 35)
-                .padding(.top, 66)
-                .frame(alignment: .leading)
-                orderMenuListView
-                HStack {
-                    bottomInfoView
-                    Spacer()
-                    goToPaymentViewBtn
-                }
+        VStack {
+            HStack(spacing: 200) {
+                backBtn
+                title
+                Spacer()
+            }
+            .padding(.leading, 35)
+            .padding(.top, 66)
+            .frame(alignment: .leading)
+            orderMenuListView
+            HStack {
+                bottomInfoView
+                Spacer()
+                goToPaymentViewBtn
             }
         }
+        
         .navigationBarBackButtonHidden(true)
+//        .navigationDestination(for: String.self) { string in
+//            PaymentView(stack: $stack)
+//        }
     }
     
     private var title: some View {
@@ -88,9 +90,7 @@ struct OrderListView: View {
     }
     
     private var goToPaymentViewBtn: some View {
-        NavigationLink {
-            PaymentView(stack: $stack)
-        } label: {
+        NavigationLink(destination: PaymentView(stack: $stack)) {
             HStack {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 74))

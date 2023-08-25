@@ -7,75 +7,110 @@
 
 import AVFoundation
 import SwiftUI
+import Speech
 
-struct OrderButtonView: View {
-    @State private var audioRecorder: AVAudioRecorder?
-    @State private var isRecording = false
+class SpeechManager: ObservableObject {
+    @Published var outputText = ""
+    @Published var isRecording = false
+    
+    private var audioEngine = AVAudioEngine()
+    private var speechRecognizer: SFSpeechRecognizer?
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    
+    init() {
+        speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko-KR"))
+    }
     
     func startRecording() {
-        let recordingSession = AVAudioSession.sharedInstance()
+        isRecording = true
+        outputText = ""
+        
+        let node = audioEngine.inputNode
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        guard let recognitionRequest = recognitionRequest else { fatalError("recognitionRequest - error") }
+        recognitionRequest.shouldReportPartialResults = true //true -> 실시간으로 변환
+        // recognitionRequest.shouldReportPartialResults = false //false -> 종료 후 한꺼번에 변환
+        
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [self] result, error in
+            if let result = result {
+                self.outputText = convert(result.bestTranscription.formattedString)
+            } else if let error = error {
+                print(error)
+            }
+        }
+        
+        let recordingFormat = node.outputFormat(forBus: 0)
+        //마이크 통해 들어온 음성 append
+        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+            recognitionRequest.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        
         
         do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
-            try recordingSession.setActive(true)
-            
-            let audioFilename = getDocumentsDirectory().appendingPathComponent("orderRecording.m4a")
-            print(audioFilename)
-            let settings = [
-                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                AVSampleRateKey: 44100,
-                AVNumberOfChannelsKey: 2,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ]
-            
-            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            audioRecorder?.record()
-            isRecording = true
+            try audioEngine.start()
         } catch {
-            print("Recording failed: \(error)")
+            // print("audioEngine - Error : \(error)")
         }
+        
+        
     }
     
     func stopRecording() {
-        audioRecorder?.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        audioEngine.stop()
+        recognitionRequest?.endAudio()
         isRecording = false
+        recognitionTask?.cancel()
     }
     
-    func getDocumentsDirectory() -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    func convert(_ inputText: String) -> String {
+        var convertedText = inputText
+        //단어 바꾸고 싶으면 여기 추가해서 바꿔주세요
+        let wordPair = [("세계", "3개")]
+        for (word1, word2) in wordPair {
+            convertedText = convertedText.replacingOccurrences(of: word1, with: word2)
+        }
+        return convertedText
     }
     
     
+}
+
+struct OrderButtonView: View {
+    @StateObject private var speechManager = SpeechManager()
+    @State private var result: [String] = []
+    
+    var wordTaggerView: WordTaggerView
     
     var body: some View{
-        
         VStack {
-            if isRecording {
-                Text("주문을 듣고 있습니다")
-                    .foregroundColor(.red)
-            }
+            //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
+            
+            Text(speechManager.outputText)
+                .foregroundColor(.black)
+                .padding()
+            
             Button(action: {
-                if isRecording {
-                    stopRecording()
+                if speechManager.isRecording {
+                    result.append(speechManager.outputText)
+                    wordTaggerView.$input_text.wrappedValue = speechManager.outputText
+                    print(result)
+                    speechManager.stopRecording()
+                    
+                    
                 } else {
-                    startRecording()
+                    speechManager.startRecording()
                 }
             }) {
-                Text(isRecording ? "녹음 중지" : "녹음 시작")
-                    .padding()
-                    .background(isRecording ? Color.red : Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                Text(speechManager.isRecording ? "녹음 중단" : "녹음 시작")
             }
-            
         }
         
-
         RoundedRectangle(cornerRadius: 32)
-            .frame(width: 464, height: 604)
-        
-        
-        
-        
+        //.frame(width: 464, height: 604)
     }
 }

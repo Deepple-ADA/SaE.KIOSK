@@ -8,77 +8,108 @@
 import SwiftUI
 
 struct OrderListView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Binding var stack: NavigationPath
+    let menu = MenuModel.Beverage.allCases.randomElement()!.description
+    
     var body: some View {
         VStack {
             HStack(spacing: 200) {
                 backBtn
-                Text("주문 목록")
-                  .font(
-                    Font.custom("Inter", size: 48)
-                      .weight(.bold)
-                  )
-                  .foregroundColor(.black)
+                title
                 Spacer()
             }
             .padding(.leading, 35)
+            .padding(.top, 66)
             .frame(alignment: .leading)
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 960, height: 1006)
-              .background(Color.BackgroundSecondary)
-              .cornerRadius(32)
-            HStack(spacing: 27) {
-                Image("smileIcon")
-                Text("₩ 100,000")
-                  .font(
-                    Font.custom("Inter", size: 64)
-                      .weight(.bold)
-                  )
-                  .foregroundColor(.black)
+            orderMenuListView
+            HStack {
+                bottomInfoView
                 Spacer()
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 74))
-                    .foregroundColor(.white)
-                    Text("결제")
-                      .font(
-                        Font.custom("Inter", size: 48)
-                          .weight(.bold)
-                      )
-                      .foregroundColor(.white)
-                }
-                  .frame(width: 276, height: 118)
-                  .background(Color(red: 1, green: 0.48, blue: 0.31))
-                  .cornerRadius(32)
+                goToPaymentViewBtn
             }
-            .padding(.leading, 35)
-            .padding(.trailing, 29)
         }
-       
+        
+        .navigationBarBackButtonHidden(true)
+//        .navigationDestination(for: String.self) { string in
+//            PaymentView(stack: $stack)
+//        }
+    }
+    
+    private var title: some View {
+        Text("주문 목록")
+            .font(.system(size: 48, weight: .bold))
+            .foregroundColor(.black)
     }
     
     private var backBtn: some View {
-        HStack{
-            Image("arrow")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 39, height: 32)
-            Text("뒤로 가기")
-                .font(
-                    Font.custom("Inter", size: 24)
-                        .weight(.bold)
-                )
-                .foregroundColor(Color(red: 1, green: 0.35, blue: 0.15))
+        Button {
+            dismiss()
+        } label: {
+            HStack{
+                Image("arrow")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 39, height: 32)
+                Text("뒤로 가기")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(Color.AccentPrimary)
+            }
+            .foregroundColor(.clear)
+            .frame(width: 191, height: 68)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
         }
-        .foregroundColor(.clear)
-        .frame(width: 191, height: 68)
-        .background(Color.BackgroundSecondary)
-        .cornerRadius(32)
     }
+    
+    private var orderMenuListView: some View {
+        ScrollView{
+            LazyVStack(alignment: .center){
+                //cart: [MenuVO]를 ForEach로 돌려야할듯
+                ForEach(0..<3) { _ in // 원하는 숫자로 변경
+                    OrderCardView(menu: menu)
+                }
+            }
+        }
+        .padding(.top, 60)
+        .background(
+            RoundedRectangle(cornerRadius: 32)
+                .fill(Color.BackgroundSecondary)
+                .frame(width: 960, height: 1006)
+        )
+    }
+    
+    private var bottomInfoView: some View {
+        HStack(spacing: 27) {
+            Image("smileIcon")
+            Text("₩ 100,000")
+                .font(.system(size: 64, weight: .bold))
+                .foregroundColor(.black)
+        }
+        .padding(.leading, 35)
+    }
+    
+    private var goToPaymentViewBtn: some View {
+        NavigationLink(destination: PaymentView(stack: $stack)) {
+            HStack {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 74))
+                    .foregroundColor(.white)
+                Text("결제")
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(.white)
+            }
+            .frame(width: 276, height: 118)
+            .background(Color.AccentSecondary)
+            .cornerRadius(32)
+            .padding(.trailing, 29)
+        }
+    }
+    
 }
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView()
+        OrderListView(stack: .constant(NavigationPath()))
     }
 }

@@ -13,7 +13,7 @@ struct ContentView: View {
             VStack(spacing: 32) {
                 //advertisementView
                 //bottomView
-                OrderButtonView()
+                //OrderButtonView()
             }
         }
     }

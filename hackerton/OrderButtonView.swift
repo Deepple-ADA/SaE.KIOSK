@@ -37,7 +37,7 @@ class SpeechManager: ObservableObject {
             if let result = result {
                 self.outputText = result.bestTranscription.formattedString
             } else if let error = error {
-                print("인식 실패 - \(error)")
+                print(error)
             }
         }
         
@@ -74,15 +74,20 @@ struct OrderButtonView: View {
     @StateObject private var speechManager = SpeechManager()
     @State private var result: [String] = []
     
+    var wordTaggerView: WordTaggerView
+    
     var body: some View{
         VStack {
             //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
+            
             Text(speechManager.outputText)
+                .foregroundColor(.black)
                 .padding()
             
             Button(action: {
                 if speechManager.isRecording {
                     result.append(speechManager.outputText)
+                    wordTaggerView.$input_text.wrappedValue = speechManager.outputText
                     print(result)
                     speechManager.stopRecording()
 
@@ -97,8 +102,5 @@ struct OrderButtonView: View {
         
         RoundedRectangle(cornerRadius: 32)
         //.frame(width: 464, height: 604)
-        
     }
-    
-    
 }

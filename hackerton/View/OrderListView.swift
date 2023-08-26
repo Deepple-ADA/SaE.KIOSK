@@ -67,13 +67,13 @@ struct OrderListView: View {
                 }
             }
             .padding(.top, 60)
-            .background(
-                RoundedRectangle(cornerRadius: 32)
-                    .fill(Color.BackgroundSecondary)
-                    .frame(width: 960, height: 1006)
-            )
+            
         }
-        
+        .background(
+            RoundedRectangle(cornerRadius: 32)
+                .fill(Color.BackgroundSecondary)
+                .frame(width: 960, height: 1006)
+        )
     }
     private var bottomInfoView: some View {
         HStack(spacing: 27) {

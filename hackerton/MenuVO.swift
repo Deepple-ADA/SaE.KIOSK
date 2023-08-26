@@ -24,4 +24,11 @@ extension MenuVO {
         return array.map { $0.description }
             .filter { $0.name == self.productName }.first?.image
     }
+    
+    var optionalPrice: Int? {
+        let array: [any Menuable] = MenuModel.Snack.allCases + MenuModel.Beverage.allCases + MenuModel.Coffee.allCases
+        return array.map { $0.description }
+            .filter { $0.name == self.productName }.first?.price
+    }
+    
 }

@@ -34,7 +34,7 @@ struct MenuView: View, STTModelProtocol {
             }
         }
         .sheet(isPresented: $isRecommend) {
-            RecommendView(isRecommend: $isRecommend)
+            RecommendView(isRecommend: $isRecommend, order: $outputText)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {

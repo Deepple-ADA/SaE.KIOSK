@@ -91,9 +91,11 @@ protocol STTModelProtocol {
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
+    @EnvironmentObject var chatGPTManager: ChatGPTManager
     @State private var checkRunning = false
     @Binding var isRecommend: Bool
     @State var view: STTModelProtocol
+//    @StateObject var viewModel: ViewModel = .init()
     
     var body: some View {
         VStack {
@@ -109,8 +111,13 @@ struct STTManager: View {
                 speechManager.stopRecording()
 
                 
-                if speechManager.outputText.contains("추천") { //추천
+                if speechManager.outputText.contains("추천") {
+                    //추천
                     isRecommend = true
+                    // GPT ㅎㅇ
+                    
+                    chatGPTManager.sendMessage(input: speechManager.outputText)
+                    
                 } else { //주문
                     wordTaggerViewModel.tag(text: speechManager.outputText)
                     let menus = wordTaggerViewModel.getMenus()

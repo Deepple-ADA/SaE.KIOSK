@@ -6,23 +6,29 @@
 //
 
 import SwiftUI
+import ARKit
 
 struct ContentView: View {
+    @State private var isEyeTracking = false
     @State var stack: NavigationPath = NavigationPath()
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 32) {
-                advertisementView
-                HStack{
-                    bottomLeftView
-                    orderBtn
+        ZStack {
+            ARKitView(isTracking: $isEyeTracking)
+            NavigationStack(path: $stack) {
+                VStack(spacing: 32) {
+                    advertisementView
+                    HStack{
+                        bottomLeftView
+                        orderBtn
+                    }
+                }
+                .navigationDestination(isPresented: $isEyeTracking) {
+                    MenuView(stack: $stack)
                 }
             }
-            .navigationDestination(for: String.self) { string in
-                MenuView(stack: $stack)
-            }
-        }
+            
+        }//ZStack
     }
     
     private var advertisementView: some View {

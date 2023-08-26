@@ -157,3 +157,4 @@ struct MenuView_Previews: PreviewProvider {
         MenuView(isLinkActive: .constant(true))
     }
 }
+

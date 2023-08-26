@@ -8,28 +8,21 @@
 import Foundation
 
 enum TTSSentences {
+    // menu view
     static var initialGuide: String {
         "원하는 상품을 말씀해주세요. 혹은 추천이 필요하시다면 “추천해주세요” 라고 말씀해주세요."
     }
 
-    static var needMore: String {
-        "더 필요하신 것이 있나요?"
-    }
-
-    static func productList(of menuType: MenuModel.ProductType) -> String {
-        " \(menuType.inKorean) 상품목록입니다."
-    }
-
-    typealias Order = (menu: MenuModel.Menu, count: Int)
-
-    static func checkOrder(with orders: [Order]) -> String {
+    // STT에서 추가할 때마다 :)
+    static func needMore(check orders:[MenuVo]) -> String {
         let menuString = orders.reduce("") { (partial, current) in
-            return partial + "\(current.menu.name) \(current.count)개,"
+            return partial + "\(current.productName) \(current.amount)개,"
         }
-        return menuString + "맞으신가요?"
+        return "\(menuString). 더 필요하신 것이 있다면 버튼을 눌러서 주문해주세요."
     }
-
-    static var bye: String {
-        "이용해주셔서 감사합니다."
-    }
+//
+//    // recommend 시작할 때
+//    static var recommend: String {
+//        "원하시는 제품에 대해 말해주세요."
+//    }
 }

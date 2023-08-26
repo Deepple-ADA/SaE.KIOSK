@@ -65,17 +65,16 @@ struct OrderListView: View {
                 ForEach($cart, id: \.self) { item in
                     OrderCardView(item: item, cart: $cart)
                 }
-                
             }
+            .padding(.top, 60)
+            .background(
+                RoundedRectangle(cornerRadius: 32)
+                    .fill(Color.BackgroundSecondary)
+                    .frame(width: 960, height: 1006)
+            )
         }
-        .padding(.top, 60)
-        .background(
-            RoundedRectangle(cornerRadius: 32)
-                .fill(Color.BackgroundSecondary)
-                .frame(width: 960, height: 1006)
-        )
+        
     }
-    
     private var bottomInfoView: some View {
         HStack(spacing: 27) {
             LottieView(filename: "logo")
@@ -111,10 +110,14 @@ struct OrderListView: View {
         }
     }
     
-}
-
-struct OrderListView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderListView(isLinkActive: .constant(true), cart: .constant([]))
+    func calculateTotal(menuArray: [MenuVO]) -> Int {
+        return menuArray.reduce(0) { $0 + ($1.price * $1.amount) }
     }
 }
+
+//struct OrderListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderListView(isLinkActive: .constant(true))
+//    }
+//}
+//

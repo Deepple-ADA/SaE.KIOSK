@@ -85,6 +85,7 @@ protocol STTModelProtocol {
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
+    @State private var checkRunning = false
     
     @State var view: STTModelProtocol
     

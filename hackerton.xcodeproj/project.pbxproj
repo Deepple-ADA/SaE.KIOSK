@@ -35,6 +35,7 @@
 		B525237D2A9901F2004FC2C3 /* OrderDetailVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */; };
 		B525237F2A990202004FC2C3 /* MenuVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237E2A990202004FC2C3 /* MenuVO.swift */; };
 		B52523812A990725004FC2C3 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52523802A990725004FC2C3 /* RecommendView.swift */; };
+		B52523832A99E8FC004FC2C3 /* WordTagger2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B52523822A99E8FC004FC2C3 /* WordTagger2.mlmodel */; };
 		B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C739682A8D202E005CFC2C /* hackertonApp.swift */; };
 		B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C7396A2A8D202E005CFC2C /* ContentView.swift */; };
 		B5C7396D2A8D202F005CFC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7396C2A8D202F005CFC2C /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
 		B525237E2A990202004FC2C3 /* MenuVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVO.swift; sourceTree = "<group>"; };
 		B52523802A990725004FC2C3 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		B52523822A99E8FC004FC2C3 /* WordTagger2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = WordTagger2.mlmodel; path = ../../../Downloads/WordTagger2.mlmodel; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -207,7 +209,7 @@
 				4221DF1F2A97273E00F532F1 /* Extension */,
 				4221DF1A2A9725A400F532F1 /* Model */,
 				B5C7396C2A8D202F005CFC2C /* Assets.xcassets */,
-				9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */,
+				B52523822A99E8FC004FC2C3 /* WordTagger2.mlmodel */,
 				B5C7396E2A8D202F005CFC2C /* Preview Content */,
 				B52523782A9901A9004FC2C3 /* KioskRequest.swift */,
 				B525237A2A9901D5004FC2C3 /* OrderVO.swift */,
@@ -323,12 +325,12 @@
 				4221DF252A97429400F532F1 /* MenuTypeCardView.swift in Sources */,
 				4221DF382A98BAC500F532F1 /* IntExtension.swift in Sources */,
 				B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */,
+				B52523832A99E8FC004FC2C3 /* WordTagger2.mlmodel in Sources */,
 				B525237F2A990202004FC2C3 /* MenuVO.swift in Sources */,
 				4221DF4A2A99915D00F532F1 /* ARKitView.swift in Sources */,
 				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
 				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
-				9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */,
 				B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */,
 				B525237D2A9901F2004FC2C3 /* OrderDetailVO.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
@@ -461,7 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = X32GZ3NKQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
@@ -495,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = X32GZ3NKQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;

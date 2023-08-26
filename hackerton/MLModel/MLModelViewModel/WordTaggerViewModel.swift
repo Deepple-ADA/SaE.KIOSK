@@ -10,14 +10,14 @@ import CoreML
 
 class WordTaggerViewModel: ObservableObject {
     var config: MLModelConfiguration
-    var model: WordTagger1?
+    var model: WordTagger2?
     var labels: [String] = [""]
     var tokens: [String] = [""]
     
     init() {
         self.config = MLModelConfiguration()
         do {
-            self.model = try WordTagger1(configuration: config)
+            self.model = try WordTagger2(configuration: config)
         }
         catch {
             self.model = nil

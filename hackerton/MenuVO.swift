@@ -15,4 +15,13 @@ struct MenuVO: Codable, Hashable {
     var dictionary: [String : Any] {
         ["productName": productName, "price": price, "amount": amount]
     }
+    
+}
+
+extension MenuVO {
+    var optionalImage: String? {
+        let array: [any Menuable] = MenuModel.Snack.allCases + MenuModel.Beverage.allCases + MenuModel.Coffee.allCases
+        return array.map { $0.description }
+            .filter { $0.name == self.productName }.first?.image
+    }
 }

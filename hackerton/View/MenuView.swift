@@ -21,7 +21,6 @@ struct MenuView: View, STTModelProtocol {
     ]
     
     @State var cart: [MenuVO] = []
-    
 
     var body: some View {
         VStack(spacing: 28) {
@@ -87,25 +86,8 @@ struct MenuView: View, STTModelProtocol {
                     
                 } label: {
                     STTManager(view: self)
-                        .offset(x:0, y: -15)
-                    
                 }
-                VStack(spacing: 13) {
-                    Text("\(outputText)----")
-                        .font(.system(size: 24))
-                        .foregroundColor(.TextSecondary)
-                    Text("""
-                         새우깡 하나 담기
-                         땅콩이 들어가지 않은 메뉴 추천
-                         커피 메뉴 보기
-                         """)
-                    
-                    
-                    Text("\(outputText)----")
-                        .font(.system(size: 20, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.Textprimary)
-                }
+
                 
             }
             .foregroundColor(.clear)
@@ -152,9 +134,8 @@ struct MenuView: View, STTModelProtocol {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView(isLinkActive: .constant(true))
-    }
-}
-
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuView(isLinkActive: .constant(true), outputText: "", stack: .constant(NavigationPath()))
+//    }
+//}

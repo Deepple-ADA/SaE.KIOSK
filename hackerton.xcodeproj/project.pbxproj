@@ -24,6 +24,7 @@
 		B2EDD62D2A999D9B0017EEF8 /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */; };
 		B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62E2A999E060017EEF8 /* StringExtension.swift */; };
 		B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD6312A99A03D0017EEF8 /* WordCorrector */; };
+		B2EDD6342A99E6760017EEF8 /* TextToSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD6332A99E6760017EEF8 /* TextToSpeechManager.swift */; };
 		B52523772A990168004FC2C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B52523762A990168004FC2C3 /* Alamofire */; };
 		B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52523782A9901A9004FC2C3 /* KioskRequest.swift */; };
 		B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237A2A9901D5004FC2C3 /* OrderVO.swift */; };
@@ -54,6 +55,7 @@
 		9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
 		B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		B2EDD62E2A999E060017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		B2EDD6332A99E6760017EEF8 /* TextToSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechManager.swift; sourceTree = "<group>"; };
 		B52523782A9901A9004FC2C3 /* KioskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KioskRequest.swift; sourceTree = "<group>"; };
 		B525237A2A9901D5004FC2C3 /* OrderVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVO.swift; sourceTree = "<group>"; };
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				B525237A2A9901D5004FC2C3 /* OrderVO.swift */,
 				B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */,
 				B525237E2A990202004FC2C3 /* MenuVO.swift */,
+				B2EDD6332A99E6760017EEF8 /* TextToSpeechManager.swift */,
 			);
 			path = hackerton;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */,
 				4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */,
 				4221DF1E2A9725D400F532F1 /* MenuView.swift in Sources */,
+				B2EDD6342A99E6760017EEF8 /* TextToSpeechManager.swift in Sources */,
 				4221DF272A97458B00F532F1 /* OrderListView.swift in Sources */,
 				B52523812A990725004FC2C3 /* RecommendView.swift in Sources */,
 				4221DF1C2A9725B600F532F1 /* MenuModel.swift in Sources */,

@@ -11,6 +11,7 @@ struct OrderListView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var stack: NavigationPath
     let menu = MenuModel.Beverage.allCases.randomElement()!.description
+    @Binding var cart: [MenuVO]
     
     var body: some View {
         VStack {
@@ -65,10 +66,10 @@ struct OrderListView: View {
     private var orderMenuListView: some View {
         ScrollView{
             LazyVStack(alignment: .center){
-                //cart: [MenuVO]를 ForEach로 돌려야할듯
-                ForEach(0..<3) { _ in // 원하는 숫자로 변경
-                    OrderCardView(menu: menu)
+                ForEach($cart, id: \.self) { item in
+                    OrderCardView(item: item)
                 }
+                
             }
         }
         .padding(.top, 60)
@@ -108,8 +109,8 @@ struct OrderListView: View {
     
 }
 
-struct OrderListView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderListView(stack: .constant(NavigationPath()))
-    }
-}
+//struct OrderListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderListView(stack: .constant(NavigationPath()))
+//    }
+//}

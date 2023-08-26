@@ -121,8 +121,8 @@ struct PaymentView: View {
     
 }
 
-struct PaymentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PaymentView(stack: .constant(NavigationPath()))
-    }
-}
+//struct PaymentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PaymentView(stack: .constant(NavigationPath()))
+//    }
+//}

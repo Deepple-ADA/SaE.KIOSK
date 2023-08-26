@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct MenuVO: Codable {
-    var menu: String
+struct MenuVO: Codable, Hashable {
+    var productName: String
     var price: Int
     var amount: Int
     
     var dictionary: [String : Any] {
-        ["menu": menu, "price": price, "amount": amount]
+        ["productName": productName, "price": price, "amount": amount]
     }
 }

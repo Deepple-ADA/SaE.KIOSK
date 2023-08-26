@@ -8,7 +8,9 @@
 import Foundation
 import WordCorrector
 
-struct MenuCreator {
+typealias Order = (menu: MenuModel.Menu, count: Int)
+
+enum MenuCreator {
     static let countNumberDictionary = [
         1: ["하나", "일", "한"],
         2: ["둘", "이", "두"],
@@ -23,16 +25,19 @@ struct MenuCreator {
         20: ["스물", "이십"],
         30: ["서른", "삼십"]
     ].sorted { $0.key > $1.key }
+    
+    static let menuDictionary = [
+        "후레쉬 베리", "초콜릿", "소시지", "약과", "오트밀 과자", "초코파이", "스키틀즈",
+        "레몬 주스", "콜라", "초코 우유", "딸기 우유", "사이다", "사과 주스", "비타민", "갈아만든 배", "식혜", "핫식스", "오렌지 에이드", "게토레이",
+        "레쓰비", "아메리카노", "믹스 커피",
+        "왕뚜껑", "육개장", "진라면", "튀김우동"
+    ]
 
-    var corrector: WordCorrector
-
-    typealias Order = (menu: MenuModel.Menu, count: Int)
-
-    func convert(predictions: [[String]]) -> [Order] {
-        predictions.compactMap { convert(prediction: $0) }
+    static func convert(predictions: [[String]], corrector: WordCorrector = .init(wordDictionary: menuDictionary)) -> [Order] {
+        predictions.compactMap { convert(prediction: $0, corrector: corrector) }
     }
 
-    func convert(prediction: [String]) -> Order? {
+    private static func convert(prediction: [String], corrector: WordCorrector = .init(wordDictionary: menuDictionary)) -> Order? {
         guard prediction.count == 2,
             let menuString = corrector.correct(word: prediction[0]),
               let menu = menuString.asMenu else {
@@ -46,7 +51,7 @@ struct MenuCreator {
         return (menu, extractDigits(from: prediction[1]))
     }
 
-    private func extractDigits(from countString: String) -> Int {
+    private static func extractDigits(from countString: String) -> Int {
         // 스물 세 잔 -> 23
         // 스물세개 -> 23
         var countString = countString

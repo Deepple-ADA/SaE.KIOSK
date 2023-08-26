@@ -11,6 +11,7 @@ import SwiftUI
 struct RecommendView: View, STTModelProtocol {
     @StateObject private var speechManager = SpeechManager()
     @State var outputText = ""
+    @State var cart: [MenuVO] = []
     
     var body: some View {
         Button{

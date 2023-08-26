@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Foundation
+import CoreML
+
 
 struct MenuView: View, STTModelProtocol {
     @StateObject private var speechManager = SpeechManager()
@@ -18,12 +20,14 @@ struct MenuView: View, STTModelProtocol {
         GridItem(.adaptive(minimum: 431))
     ]
     
-    @State private var cart: [MenuVO] = []
+    @State var cart: [MenuVO] = []
     
+
     var body: some View {
         VStack(spacing: 28) {
             menuTypeView
             menuListView
+
             HStack(spacing: 28){
                 infoView
                 goToOrderListBtn
@@ -77,23 +81,25 @@ struct MenuView: View, STTModelProtocol {
     
     private var infoView: some View {
         VStack {
-            HStack(spacing: 32){
-                Button{
-                    //                        STTManager(view: self)
+            HStack(spacing: 32) {
+                Button {
+
+                    
                 } label: {
                     STTManager(view: self)
                         .offset(x:0, y: -15)
                     
                 }
                 VStack(spacing: 13) {
-                    Text("화면을 바라보고 이렇게 말씀해보세요")
+                    Text("\(outputText)----")
                         .font(.system(size: 24))
                         .foregroundColor(.TextSecondary)
                     Text("""
-                                        새우깡 하나 담기
-                                        땅콩이 들어가지 않은 메뉴 추천
-                                        커피 메뉴 보기
-                                        """)
+                         새우깡 하나 담기
+                         땅콩이 들어가지 않은 메뉴 추천
+                         커피 메뉴 보기
+                         """)
+                    
                     
                     Text("\(outputText)----")
                         .font(.system(size: 20, weight: .bold))
@@ -144,6 +150,7 @@ struct MenuView: View, STTModelProtocol {
         }
         
     }
+    
     
 }
 

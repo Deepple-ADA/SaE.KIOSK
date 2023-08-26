@@ -44,22 +44,25 @@ struct MenuModel {
         case 참쌀설병
         case 멘토스
         case 마가렛드
-        case 후레쉬베리
+        case 후레쉬베리 = "후레쉬 베리"
+        case 오트밀과자 = "오트밀 과자"
         
         var description: MenuModel.Menu {
             switch self {
             case .마가렛드:
-                return Menu(name: self.rawValue, price: 4000, desc: "핳하ㅏ하", image: "snack")
+                return Menu(name: rawValue, price: 4000, desc: "핳하ㅏ하", image: "snack")
             case .새우깡:
-                return Menu(name: self.rawValue, price: 1000, desc: "asd", image: "snack")
+                return Menu(name: rawValue, price: 1000, desc: "asd", image: "snack")
             case .초코파이:
-                return Menu(name: self.rawValue, price: 2000, desc: "asdd", image: "snack")
+                return Menu(name: rawValue, price: 2000, desc: "asdd", image: "snack")
             case .참쌀설병:
-                return Menu(name: self.rawValue, price: 3000, desc: "asdfd", image: "snack")
+                return Menu(name: rawValue, price: 3000, desc: "asdfd", image: "snack")
             case .멘토스:
-                return Menu(name: self.rawValue, price: 2000, desc: "qwerd", image: "snack")
+                return Menu(name: rawValue, price: 2000, desc: "qwerd", image: "snack")
             case .후레쉬베리:
-                return Menu(name: self.rawValue, price: 1000, desc: "werd", image: "snack")
+                return Menu(name: rawValue, price: 1000, desc: "werd", image: "snack")
+            case .오트밀과자:
+                return Menu(name: rawValue, price: 1000, desc: "werd", image: "snack")
             }
         }
         var id: String {
@@ -73,6 +76,7 @@ struct MenuModel {
         case 제로콜라
         case 오렌지주스
         case 초코우유
+        case 사과주스 = "사과 주스"
         
         var description: MenuModel.Menu {
             switch self {
@@ -88,6 +92,8 @@ struct MenuModel {
                 return Menu(name: rawValue, price: 8500, desc: "O", image: "snack")
             case .초코우유:
                 return Menu(name: rawValue, price: 2000, desc: "choco", image: "snack")
+            case .사과주스:
+                return Menu(name: rawValue, price: 1000, desc: "werd", image: "snack")
             }
         }
         var id: String {

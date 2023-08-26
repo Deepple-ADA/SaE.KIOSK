@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AfterPaymentView: View {
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     
     var body: some View {
         VStack(spacing: 0){
             mainView
             Spacer().frame(height: 72)
             goToMainViewBtn
-            Spacer().frame(height: 226)
+            Spacer().frame(height: 186)
             bottomView
             Spacer().frame(height: 11)
             cancelOrderBtn
@@ -26,8 +26,8 @@ struct AfterPaymentView: View {
     
     private var mainView: some View {
         VStack {
-            Image("lastIcon")
-                .frame(width: 259, height: 259)
+            LottieView(filename: "logo")
+                .frame(width: 300, height: 300)
             Spacer().frame(height: 72)
             VStack(spacing: 0) {
                 Text("주문해주셔서")
@@ -44,7 +44,7 @@ struct AfterPaymentView: View {
     
     private var goToMainViewBtn: some View {
         Button {
-            stack = .init()
+            isLinkActive = false
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -90,7 +90,7 @@ struct AfterPaymentView: View {
     
     private var cancelOrderBtn: some View {
         Button {
-            stack = .init()
+            isLinkActive = false
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -111,6 +111,6 @@ struct AfterPaymentView: View {
 
 struct AfterPaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        AfterPaymentView(stack: .constant(NavigationPath()))
+        AfterPaymentView(isLinkActive: .constant(true))
     }
 }

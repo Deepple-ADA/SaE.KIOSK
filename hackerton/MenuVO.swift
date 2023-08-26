@@ -7,12 +7,21 @@
 
 import Foundation
 
-struct MenuVO: Codable {
-    var menu: String
+struct MenuVO: Codable, Hashable {
+    var productName: String
     var price: Int
     var amount: Int
     
     var dictionary: [String : Any] {
-        ["menu": menu, "price": price, "amount": amount]
+        ["productName": productName, "price": price, "amount": amount]
+    }
+    
+}
+
+extension MenuVO {
+    var optionalImage: String? {
+        let array: [any Menuable] = MenuModel.Snack.allCases + MenuModel.Beverage.allCases + MenuModel.Coffee.allCases
+        return array.map { $0.description }
+            .filter { $0.name == self.productName }.first?.image
     }
 }

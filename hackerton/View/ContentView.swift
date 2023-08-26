@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var stack = NavigationPath()
+    @State var stack: NavigationPath = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $stack) {
@@ -18,6 +18,9 @@ struct ContentView: View {
                     bottomLeftView
                     orderBtn
                 }
+            }
+            .navigationDestination(for: String.self) { string in
+                MenuView(stack: $stack)
             }
         }
     }
@@ -54,7 +57,7 @@ struct ContentView: View {
     }
     
     private var orderBtn: some View {
-        NavigationLink(destination: MenuView(stack: $stack)) {
+        NavigationLink(value: "MenuView") {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }

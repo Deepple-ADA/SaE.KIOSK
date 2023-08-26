@@ -21,14 +21,12 @@ struct MenuView: View, STTModelProtocol {
     @State private var cart: [MenuVO] = []
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 28) {
-                menuTypeView
-                menuListView
-                HStack(spacing: 28){
-                    infoView
-                    goToOrderListBtn
-                }
+        VStack(spacing: 28) {
+            menuTypeView
+            menuListView
+            HStack(spacing: 28){
+                infoView
+                goToOrderListBtn
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AfterPaymentView: View {
     @Binding var stack: NavigationPath
-        
+    
     var body: some View {
         VStack(spacing: 0){
             mainView

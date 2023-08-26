@@ -30,11 +30,7 @@ struct OrderListView: View {
                 goToPaymentViewBtn
             }
         }
-        
         .navigationBarBackButtonHidden(true)
-//        .navigationDestination(for: String.self) { string in
-//            PaymentView(stack: $stack)
-//        }
     }
     
     private var title: some View {
@@ -67,7 +63,7 @@ struct OrderListView: View {
         ScrollView{
             LazyVStack(alignment: .center){
                 ForEach($cart, id: \.self) { item in
-                    OrderCardView(item: item)
+                    OrderCardView(item: item, cart: $cart)
                 }
                 
             }

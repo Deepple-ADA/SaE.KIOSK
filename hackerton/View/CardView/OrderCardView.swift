@@ -14,7 +14,7 @@ struct OrderCardView: View {
     @State private var showAlert = false
     
     @Binding var item: MenuVO
-  
+    @Binding var cart: [MenuVO]
     
     var body: some View {
         HStack{
@@ -31,7 +31,6 @@ struct OrderCardView: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 178, height: 178)
                         VStack{
-                            //Text(orderName)
                             Text(item.productName)
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
@@ -64,9 +63,6 @@ struct OrderCardView: View {
             
             Button {
                 showAlert.toggle()
-                //DB에서 삭제삭제
-                
-                
             } label: {
                 Rectangle()
                     .foregroundColor(.clear)
@@ -85,7 +81,9 @@ struct OrderCardView: View {
                             title: Text("주문취소"),
                             message: Text("선택한 상품을 삭제하시겠습니까?"),
                             primaryButton: .destructive(Text("삭제")) {
-                                print("삭제삭제 테스트용")
+                                if let index = cart.firstIndex(of: item) {
+                                    cart.remove(at: index)
+                                }
                                 
                             },
                             secondaryButton: .cancel(Text("취소"))
@@ -96,7 +94,7 @@ struct OrderCardView: View {
         }
     }
     
-
+    
 }
 
 //struct OrderCardView_Previews: PreviewProvider {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaymentView: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     
     var body: some View {
         VStack(spacing: 63){
@@ -59,7 +59,7 @@ struct PaymentView: View {
     }
     
     private var payByCard: some View {
-        NavigationLink(destination: AfterPaymentView(stack: $stack)) {
+        NavigationLink(destination: AfterPaymentView(isLinkActive: $isLinkActive)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 650, height: 203)
@@ -89,7 +89,7 @@ struct PaymentView: View {
     }
     
     private var payByApplePay: some View {
-        NavigationLink(destination: AfterPaymentView(stack: $stack)) {
+        NavigationLink(destination: AfterPaymentView(isLinkActive: $isLinkActive)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 650, height: 203)
@@ -121,8 +121,9 @@ struct PaymentView: View {
     
 }
 
-//struct PaymentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PaymentView(stack: .constant(NavigationPath()))
-//    }
-//}
+struct PaymentView_Previews: PreviewProvider {
+    static var previews: some View {
+        PaymentView(isLinkActive: .constant(true))
+    }
+}
+

@@ -50,7 +50,7 @@ struct ARKitView: UIViewRepresentable {
                         // 눈과 카메라 사이의 거리 계산
                         let distance = calculateDistance(from: leftEyePosition, to: cameraPosition)
 
-                        if distance <= 1 { // 50cm or less
+                        if distance <= 0.9 { // 50cm or less
                             parent.isTracking = true
                         } else {
                             parent.isTracking = false

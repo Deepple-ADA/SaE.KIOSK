@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ARKit
 
 struct ContentView: View {
     @State private var isEyeTracking = false
@@ -27,7 +26,6 @@ struct ContentView: View {
                     MenuView(stack: $stack)
                 }
             }
-            
         }//ZStack
     }
     

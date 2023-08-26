@@ -23,9 +23,10 @@
 		4221DF732A99EF9900F532F1 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF722A99EF9900F532F1 /* LottieView.swift */; };
 		4221DF762A99FE4800F532F1 /* soundIcon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4221DF752A99FE4800F532F1 /* soundIcon.json */; };
 		4221DF782A9A171C00F532F1 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4221DF772A9A171C00F532F1 /* logo.json */; };
-		9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */; };
 		9834FF4A2A97A65400F4A980 /* WordTaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */; };
 		9834FF4C2A97A65A00F4A980 /* WordTaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */; };
+		B2D1E2192A9A499C00E5D9AA /* TextToSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1E2182A9A499C00E5D9AA /* TextToSpeechManager.swift */; };
+		B2D1E21C2A9A49C200E5D9AA /* TTSSentences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1E21B2A9A49C200E5D9AA /* TTSSentences.swift */; };
 		B2EDD62D2A999D9B0017EEF8 /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */; };
 		B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62E2A999E060017EEF8 /* StringExtension.swift */; };
 		B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD6312A99A03D0017EEF8 /* WordCorrector */; };
@@ -59,9 +60,10 @@
 		4221DF722A99EF9900F532F1 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		4221DF752A99FE4800F532F1 /* soundIcon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soundIcon.json; sourceTree = "<group>"; };
 		4221DF772A9A171C00F532F1 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
-		9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger1.mlmodel; sourceTree = "<group>"; };
 		9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerViewModel.swift; sourceTree = "<group>"; };
 		9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
+		B2D1E2182A9A499C00E5D9AA /* TextToSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechManager.swift; sourceTree = "<group>"; };
+		B2D1E21B2A9A49C200E5D9AA /* TTSSentences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSSentences.swift; sourceTree = "<group>"; };
 		B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		B2EDD62E2A999E060017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B52523782A9901A9004FC2C3 /* KioskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KioskRequest.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
 		B525237E2A990202004FC2C3 /* MenuVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVO.swift; sourceTree = "<group>"; };
 		B52523802A990725004FC2C3 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
-		B52523822A99E8FC004FC2C3 /* WordTagger2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = WordTagger2.mlmodel; path = ../../../Downloads/WordTagger2.mlmodel; sourceTree = "<group>"; };
+		B52523822A99E8FC004FC2C3 /* WordTagger2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger2.mlmodel; sourceTree = "<group>"; };
 		B5C739652A8D202E005CFC2C /* hackerton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C739682A8D202E005CFC2C /* hackertonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackertonApp.swift; sourceTree = "<group>"; };
 		B5C7396A2A8D202E005CFC2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = MLModelViewModel;
 			sourceTree = "<group>";
 		};
+		B2D1E21A2A9A49B200E5D9AA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2D1E21B2A9A49C200E5D9AA /* TTSSentences.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		B5C7395C2A8D202E005CFC2C = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		B5C739672A8D202E005CFC2C /* hackerton */ = {
 			isa = PBXGroup;
 			children = (
+				B2D1E21A2A9A49B200E5D9AA /* Data */,
 				9834FF462A97A63300F4A980 /* MLModel */,
 				B5C739942A934D5E005CFC2C /* Info.plist */,
 				B5C739682A8D202E005CFC2C /* hackertonApp.swift */,
@@ -215,6 +226,7 @@
 				B525237A2A9901D5004FC2C3 /* OrderVO.swift */,
 				B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */,
 				B525237E2A990202004FC2C3 /* MenuVO.swift */,
+				B2D1E2182A9A499C00E5D9AA /* TextToSpeechManager.swift */,
 			);
 			path = hackerton;
 			sourceTree = "<group>";
@@ -309,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1E2192A9A499C00E5D9AA /* TextToSpeechManager.swift in Sources */,
 				4221DF232A9735BC00F532F1 /* MenuCardView.swift in Sources */,
 				B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */,
 				4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */,
@@ -328,6 +341,7 @@
 				B52523832A99E8FC004FC2C3 /* WordTagger2.mlmodel in Sources */,
 				B525237F2A990202004FC2C3 /* MenuVO.swift in Sources */,
 				4221DF4A2A99915D00F532F1 /* ARKitView.swift in Sources */,
+				B2D1E21C2A9A49C200E5D9AA /* TTSSentences.swift in Sources */,
 				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
 				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
@@ -463,7 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = 6BHXWP5PYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
@@ -497,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = 6BHXWP5PYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;

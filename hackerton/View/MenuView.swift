@@ -150,12 +150,11 @@ struct MenuView: View, STTModelProtocol {
         }
         
     }
-    
-    
 }
-//
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView(isLinkActive: .constant(true), outputText: "", stack: .constant(NavigationPath()))
-//    }
-//}
+
+struct MenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuView(isLinkActive: .constant(true))
+    }
+}
+

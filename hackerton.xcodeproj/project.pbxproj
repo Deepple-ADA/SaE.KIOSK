@@ -101,8 +101,8 @@
 				4221DF1D2A9725D400F532F1 /* MenuView.swift */,
 				4221DF262A97458B00F532F1 /* OrderListView.swift */,
 				4221DF302A989DE200F532F1 /* PaymentView.swift */,
-				4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */,
 				B52523802A990725004FC2C3 /* RecommendView.swift */,
+				4221DF292A9748AC00F532F1 /* AfterPaymentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

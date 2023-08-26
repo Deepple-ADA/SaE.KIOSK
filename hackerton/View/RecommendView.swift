@@ -12,14 +12,27 @@ struct RecommendView: View, STTModelProtocol {
     @StateObject private var speechManager = SpeechManager()
     @State var outputText = ""
     @State var cart: [MenuVO] = []
+    @Binding var isRecommend: Bool
+    
     
     var body: some View {
         Button{
             print(outputText)
         } label: {
             VStack(spacing: 28) {
+
+                Rectangle()
+                    .overlay(
+                        Text("chatGPT API를 쓰거나 추천해주는 것을 cardView로 연결해야함다")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 50))
+                    )
+                    .foregroundColor(.clear)
+                    .background(Color.BackgroundSecondary)
+                    .cornerRadius(32)
+                
                 HStack(spacing: 40) {
-                    Image("soundEffect")
+                    STTManager(isRecommend: $isRecommend, view: self)
                         .padding()
                     Spacer()
                     Text(outputText)
@@ -28,22 +41,9 @@ struct RecommendView: View, STTModelProtocol {
                     Spacer()
                 }
                 .foregroundColor(.clear)
-                .frame(width: 960, height: 168)
                 .background(Color.BackgroundSecondary)
                 .cornerRadius(32)
                 
-                STTManager(view: self)
-                
-                Rectangle()
-                    .overlay(
-                        Text("chatGPT API를 쓰거나 추천해주는 것을 cardView로 연결해야함다")
-                            .foregroundColor(.blue)
-                            .font(.system(size: 50))
-                    )
-                    .foregroundColor(.clear)
-                    .frame(width: 960, height: 873)
-                    .background(Color.BackgroundSecondary)
-                    .cornerRadius(32)
                 
             }
         }
@@ -51,8 +51,8 @@ struct RecommendView: View, STTModelProtocol {
 }
 
 
-struct RecommendView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendView()
-    }
-}
+//struct RecommendView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecommendView()
+//    }
+//}

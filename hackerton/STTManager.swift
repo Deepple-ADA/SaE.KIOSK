@@ -12,6 +12,8 @@ import Speech
 class SpeechManager: ObservableObject {
     @Published var outputText = ""
     @Published var isRecording = false
+    @Published var isRecommendSentence = false
+    
     
     private var audioEngine = AVAudioEngine()
     private var speechRecognizer: SFSpeechRecognizer?
@@ -74,6 +76,10 @@ class SpeechManager: ObservableObject {
         }
         return convertedText
     }
+    
+//    func checkRecommend(input: String) {
+//        isRecommendSentence = input.contains("추천")
+//    }
 }
 
 
@@ -86,49 +92,73 @@ struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
     @State private var checkRunning = false
-    
+    @Binding var isRecommend: Bool
     @State var view: STTModelProtocol
     
     var body: some View {
         VStack {
-            Text(speechManager.outputText)
-                .foregroundColor(.black)
-                .padding()
             sttButton
+            
         }
     }
     
     private var sttButton: some View {
         Button {
-            if speechManager.isRecording {
+            if speechManager.isRecording { //종료
                 view.outputText = speechManager.outputText
                 speechManager.stopRecording()
 
                 
-                wordTaggerViewModel.tag(text: speechManager.outputText)
-                let menus = wordTaggerViewModel.getMenus()
-                
-                // [[String]] -> [Order]
-                let orders = MenuCreator.convert(predictions: menus)
-                
-                // [Order] -> [MenuVO]
-                let menusVO = orders.map { order in
-                    MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
-                }
-
-                // tts speaking - 더 필요?
+                if speechManager.outputText.contains("추천") { //추천
+                    isRecommend = true
+                } else { //주문
+                    wordTaggerViewModel.tag(text: speechManager.outputText)
+                    let menus = wordTaggerViewModel.getMenus()
+                    
+                    // [[String]] -> [Order]
+                    let orders = MenuCreator.convert(predictions: menus)
+                    
+                    // [Order] -> [MenuVO]
+                    let menusVO = orders.map { order in
+                        MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
+                    }
+   
+                    // tts speaking - 더 필요?
                 let ttsSentence = TTSSentences.needMore(check: menusVO)
                 TextToSpeechManager.shared.speak(string: ttsSentence)
                 addToCart(items: menusVO)
+                }
                 
-            } else {
+            } else { //시작
                 TextToSpeechManager.shared.stop()
                 speechManager.startRecording()
+                
             }
         } label: {
-            Image(speechManager.isRecording ? "soundEffect" : "smileFace")
-                .resizable()
-                .frame(width: 100, height: 100)
+            HStack{
+                if speechManager.isRecording {
+                    LottieView(filename: "soundIcon")
+                        .frame(width: 150, height: 150)
+                } else {
+                    LottieView(filename: "logo")
+                        .frame(width: 150, height: 150)
+                }
+                Spacer()
+                VStack(spacing: 13) {
+                    Text("\(speechManager.outputText)")
+                        .font(.system(size: 24))
+                    Text(speechManager.isRecording ? "\(speechManager.outputText)" : "아래와 같이 말씀해보세요")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                    Text(speechManager.isRecording ? "" : """
+                     소시지 한개 주세요
+                     바삭한 과자 추천해줘
+                    """)
+                    .font(.system(size: 20))
+                    .foregroundColor(.TextSecondary)
+                }
+                Spacer()
+            }
         }
     }
     

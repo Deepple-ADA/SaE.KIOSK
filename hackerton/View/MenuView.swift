@@ -13,29 +13,34 @@ import CoreML
 struct MenuView: View, STTModelProtocol {
     @StateObject private var speechManager = SpeechManager()
     @State var outputText = ""
+    @State private var isShowingRecommendSheet = false
     
     @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
     @Binding var isLinkActive: Bool
     let columns = [
         GridItem(.adaptive(minimum: 431))
     ]
-    
+   // @Binding var checkRunning: Bool
     @State var cart: [MenuVO] = []
-
+    @Binding var isRecommend: Bool
+    
     var body: some View {
         VStack(spacing: 28) {
             menuTypeView
             menuListView
-
             HStack(spacing: 28){
                 infoView
                 goToOrderListBtn
             }
         }
+        .sheet(isPresented: $isRecommend) {
+            RecommendView(isRecommend: $isRecommend)
+        }
         .navigationBarBackButtonHidden(true)
         .onAppear {
             TextToSpeechManager.shared.speak(string: TTSSentences.initialGuide)
         }
+        
     }
     
     private var menuTypeView: some View {
@@ -85,12 +90,14 @@ struct MenuView: View, STTModelProtocol {
         VStack {
             HStack(spacing: 32) {
                 Button {
-
                     
                 } label: {
-                    STTManager(view: self)
+                    HStack{
+                        STTManager(isRecommend: $isRecommend, view: self)
+                            .padding()
+                    }
+                    
                 }
-
                 
             }
             .foregroundColor(.clear)

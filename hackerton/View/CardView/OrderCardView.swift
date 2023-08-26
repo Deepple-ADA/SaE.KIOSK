@@ -13,9 +13,8 @@ struct OrderCardView: View {
     
     @State private var showAlert = false
     
-    @Binding var orderName: String
-    @Binding var orderPrice: Int
-    @Binding var orderAmount: Int
+    @Binding var item: MenuVO
+  
     
     var body: some View {
         HStack{
@@ -32,10 +31,11 @@ struct OrderCardView: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 178, height: 178)
                         VStack{
-                            Text(orderName)
+                            //Text(orderName)
+                            Text(item.productName)
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
-                            Text("￦ \(orderPrice.decimal)")
+                            Text("￦ \(item.price.decimal)")
                                 .font(.system(size: 36, weight: .bold))
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.gray)
@@ -46,13 +46,13 @@ struct OrderCardView: View {
                         Spacer()
                         
                         VStack{
-                            Stepper(value: $orderAmount){
-                                Text("수량 : \(orderAmount)")
+                            Stepper(value: $item.amount){
+                                Text("수량 : \(item.amount)")
                                     .font(.system(size: 40))
                             }
                             .frame(width: 250)
                             
-                            Text("총액 : ￦\(orderAmount * orderPrice)")
+                            Text("총액 : ￦\(item.amount * item.price)")
                                 .font(.system(size: 40))
                             
                         }
@@ -86,6 +86,7 @@ struct OrderCardView: View {
                             message: Text("선택한 상품을 삭제하시겠습니까?"),
                             primaryButton: .destructive(Text("삭제")) {
                                 print("삭제삭제 테스트용")
+                                
                             },
                             secondaryButton: .cancel(Text("취소"))
                         )

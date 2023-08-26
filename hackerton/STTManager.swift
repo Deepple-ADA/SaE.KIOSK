@@ -88,7 +88,6 @@ protocol STTModelProtocol {
 
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
-    //@State private var result: [String] = []
 
     @State var view: STTModelProtocol
     
@@ -102,20 +101,19 @@ struct STTManager: View {
             
             Button(action: {
                 if speechManager.isRecording {
-                    //result.append(speechManager.outputText)
                     view.outputText = speechManager.outputText
                     speechManager.stopRecording()
-                    
-                    
+
                 } else {
                     speechManager.startRecording()
                 }
-            }) {
-                Text(speechManager.isRecording ? "녹음 중단" : "녹음 시작")
+            })
+            {
+                Image(speechManager.isRecording ? "smileFace" : "soundEffect")
+                    .resizable()
+                    .frame(width: 100, height: 100)
             }
         }
-        
-        RoundedRectangle(cornerRadius: 32)
-        //.frame(width: 464, height: 604)
+
     }
 }

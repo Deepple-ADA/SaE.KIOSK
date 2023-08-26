@@ -65,8 +65,7 @@ struct OrderListView: View {
         ScrollView{
             LazyVStack(alignment: .center){
                 ForEach($cart, id: \.self) { item in
-                    OrderCardView(orderName: item.productName, orderPrice: item.price, orderAmount: item.amount)
-                    
+                    OrderCardView(item: item)
                 }
                 
             }

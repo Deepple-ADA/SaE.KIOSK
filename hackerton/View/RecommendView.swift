@@ -31,7 +31,7 @@ struct RecommendView: View, STTModelProtocol {
                 .background(Color.BackgroundSecondary)
                 .cornerRadius(32)
                 
-                OrderButtonView(view: self)
+                STTManager(view: self)
                 
                 Rectangle()
                     .overlay(
@@ -51,7 +51,6 @@ struct RecommendView: View, STTModelProtocol {
 
 
 struct RecommendView_Previews: PreviewProvider {
-    @Binding var outputText: String
     static var previews: some View {
         RecommendView()
     }

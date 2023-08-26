@@ -99,11 +99,6 @@ struct STTManager: View {
     
     var body: some View {
         VStack {
-            //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
-//
-//            Text(speechManager.outputText)
-//                .foregroundColor(.black)
-//                .padding()
             
             Button(action: {
                 if speechManager.isRecording {
@@ -134,9 +129,31 @@ struct STTManager: View {
                 }
             })
             {
-                Image(speechManager.isRecording ? "soundEffect" : "smileFace")
-                    .resizable()
-                    .frame(width: 100, height: 100)
+                HStack{
+                    Image(speechManager.isRecording ? "soundEffect" : "smileFace")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .padding()
+                       
+                    Spacer()
+                    VStack(spacing: 13) {
+                        Text(speechManager.isRecording ? "\(speechManager.outputText)" : "아래와 같이 말씀해보세요")
+                            .font(.system(size: 20))
+                            .foregroundColor(.TextSecondary)
+                        Text(speechManager.isRecording ? "" : """
+                         새우깡 하나 줘
+                         바삭한 과자 추천해줘
+                         커피 메뉴 보기
+                         """)
+                        .font(.system(size: 20, weight: .bold))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.Textprimary)
+                        
+                        
+
+                    }
+                    Spacer()
+                }
             }
         }
 

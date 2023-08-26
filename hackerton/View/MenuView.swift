@@ -87,20 +87,7 @@ struct MenuView: View, STTModelProtocol {
                 } label: {
                     STTManager(view: self)
                 }
-                VStack(spacing: 13) {
-                    Text(speechManager.isRecording ? "\(outputText)" : "아래와 같이 말씀해보세요")
-                        .font(.system(size: 20))
-                        .foregroundColor(.TextSecondary)
-                    Text("""
-                         새우깡 하나 줘
-                         바삭한 과자 추천해줘
-                         커피 메뉴 보기
-                         """)
-//                    Text("\(outputText)----")
-                        .font(.system(size: 20, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.Textprimary)
-                }
+
                 
             }
             .foregroundColor(.clear)

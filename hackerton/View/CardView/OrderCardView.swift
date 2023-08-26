@@ -16,6 +16,8 @@ struct OrderCardView: View {
     @Binding var item: MenuVO
     @Binding var cart: [MenuVO]
     
+ 
+    
     var body: some View {
         HStack{
             Rectangle()
@@ -26,7 +28,7 @@ struct OrderCardView: View {
                 .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                 .overlay(
                     HStack {
-                        Image("snack")
+                        Image(item.optionalImage ?? "준비중이미지")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 178, height: 178)
@@ -45,7 +47,7 @@ struct OrderCardView: View {
                         Spacer()
                         
                         VStack{
-                            Stepper(value: $item.amount){
+                            Stepper(value: $item.amount, in: 0...100, step: 1){
                                 Text("수량 : \(item.amount)")
                                     .font(.system(size: 40))
                             }

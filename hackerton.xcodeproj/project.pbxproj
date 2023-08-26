@@ -21,6 +21,9 @@
 		9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */; };
 		9834FF4A2A97A65400F4A980 /* WordTaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */; };
 		9834FF4C2A97A65A00F4A980 /* WordTaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */; };
+		B2EDD62D2A999D9B0017EEF8 /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */; };
+		B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62E2A999E060017EEF8 /* StringExtension.swift */; };
+		B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD6312A99A03D0017EEF8 /* WordCorrector */; };
 		B52523772A990168004FC2C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B52523762A990168004FC2C3 /* Alamofire */; };
 		B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52523782A9901A9004FC2C3 /* KioskRequest.swift */; };
 		B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237A2A9901D5004FC2C3 /* OrderVO.swift */; };
@@ -49,6 +52,8 @@
 		9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger1.mlmodel; sourceTree = "<group>"; };
 		9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerViewModel.swift; sourceTree = "<group>"; };
 		9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
+		B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
+		B2EDD62E2A999E060017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B52523782A9901A9004FC2C3 /* KioskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KioskRequest.swift; sourceTree = "<group>"; };
 		B525237A2A9901D5004FC2C3 /* OrderVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVO.swift; sourceTree = "<group>"; };
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */,
 				B52523772A990168004FC2C3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +100,7 @@
 			children = (
 				4221DF1B2A9725B600F532F1 /* MenuModel.swift */,
 				4221DF322A98B4F800F532F1 /* Menuable.swift */,
+				B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,6 +110,7 @@
 			children = (
 				4221DF202A97275F00F532F1 /* ColorExtension.swift */,
 				4221DF372A98BAC500F532F1 /* IntExtension.swift */,
+				B2EDD62E2A999E060017EEF8 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			name = hackerton;
 			packageProductDependencies = (
 				B52523762A990168004FC2C3 /* Alamofire */,
+				B2EDD6312A99A03D0017EEF8 /* WordCorrector */,
 			);
 			productName = hackerton;
 			productReference = B5C739652A8D202E005CFC2C /* hackerton.app */;
@@ -236,6 +245,7 @@
 			mainGroup = B5C7395C2A8D202E005CFC2C;
 			packageReferences = (
 				B52523752A990168004FC2C3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B2EDD6302A99A03D0017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */,
 			);
 			productRefGroup = B5C739662A8D202E005CFC2C /* Products */;
 			projectDirPath = "";
@@ -283,8 +293,10 @@
 				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
 				9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */,
+				B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */,
 				B525237D2A9901F2004FC2C3 /* OrderDetailVO.swift in Sources */,
 				B5C739692A8D202E005CFC2C /* hackertonApp.swift in Sources */,
+				B2EDD62D2A999D9B0017EEF8 /* MenuCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +503,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B2EDD6302A99A03D0017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vanism2091/WordCorrector";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
 		B52523752A990168004FC2C3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -502,6 +522,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B2EDD6312A99A03D0017EEF8 /* WordCorrector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2EDD6302A99A03D0017EEF8 /* XCRemoteSwiftPackageReference "WordCorrector" */;
+			productName = WordCorrector;
+		};
 		B52523762A990168004FC2C3 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B52523752A990168004FC2C3 /* XCRemoteSwiftPackageReference "Alamofire" */;

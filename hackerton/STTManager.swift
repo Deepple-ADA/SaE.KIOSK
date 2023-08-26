@@ -55,8 +55,6 @@ class SpeechManager: ObservableObject {
         } catch {
             // print("audioEngine - Error : \(error)")
         }
-        
-        
     }
     
     func stopRecording() {
@@ -76,8 +74,6 @@ class SpeechManager: ObservableObject {
         }
         return convertedText
     }
-    
-    
 }
 
 
@@ -85,10 +81,6 @@ protocol STTModelProtocol {
     var outputText: String { get set }
     var cart: [MenuVO] { get set }
 }
-//
-//protocol haveCartProtocol {
-//    var cart: [MenuVO] { get set }
-//}
 
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
@@ -98,44 +90,63 @@ struct STTManager: View {
     
     var body: some View {
         VStack {
-            //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
-            
             Text(speechManager.outputText)
                 .foregroundColor(.black)
                 .padding()
-            
-            Button(action: {
-                if speechManager.isRecording {
-                    view.outputText = speechManager.outputText
-                    speechManager.stopRecording()
-
-                    print("why...???")
-                    wordTaggerViewModel.tag(text: speechManager.outputText)
-                    let menus = wordTaggerViewModel.getMenus()
-                    print(menus)
-                    
-                    // [[String]] -> [Order]
-                    let orders = MenuCreator.convert(predictions: menus)
-
-                    // [Order] -> [MenuVO]
-                    let menusVO = orders.map { order in
-                        MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
-                    }
-                    print(orders)
-                    print(menusVO)
-                    
-                    view.cart = view.cart + menusVO
-                                    
-                } else {
-                    speechManager.startRecording()
+            sttButton
+        }
+    }
+    
+    private var sttButton: some View {
+        Button {
+            if speechManager.isRecording {
+                view.outputText = speechManager.outputText
+                speechManager.stopRecording()
+                
+                wordTaggerViewModel.tag(text: speechManager.outputText)
+                let menus = wordTaggerViewModel.getMenus()
+                
+                // [[String]] -> [Order]
+                let orders = MenuCreator.convert(predictions: menus)
+                
+                // [Order] -> [MenuVO]
+                let menusVO = orders.map { order in
+                    MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
                 }
-            })
-            {
-                Image(speechManager.isRecording ? "soundEffect" : "smileFace")
-                    .resizable()
-                    .frame(width: 100, height: 100)
+                
+                addToCart(items: menusVO)
+                
+            } else {
+                speechManager.startRecording()
+            }
+        } label: {
+            Image(speechManager.isRecording ? "soundEffect" : "smileFace")
+                .resizable()
+                .frame(width: 100, height: 100)
+        }
+    }
+    
+    private func addToCart(items newMenus: [MenuVO]) {
+        let itemNamesInCart = view.cart.map { $0.productName }
+        var menuNotInCart = [MenuVO](),
+            menuAlreadyInCart = [MenuVO]()
+        for newMenu in newMenus {
+            if itemNamesInCart.contains(newMenu.productName) {
+                menuAlreadyInCart.append(newMenu)
+            } else {
+                menuNotInCart.append(newMenu)
             }
         }
-
+        // 중복인 품목 더하기
+        for menu in menuAlreadyInCart {
+            for i in view.cart.indices {
+                if view.cart[i] == menu {
+                    view.cart[i].amount += menu.amount
+                    break
+                }
+            }
+        }
+        // 새 품목 추가하기
+        view.cart += menuNotInCart
     }
 }

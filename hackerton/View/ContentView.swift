@@ -66,12 +66,13 @@ struct ContentView: View {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }
+       
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

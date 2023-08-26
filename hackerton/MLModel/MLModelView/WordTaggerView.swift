@@ -30,7 +30,6 @@ struct WordTaggerView: View {
                     Spacer()
                 }
                 
-                OrderButtonView(wordTaggerView: self)
                 
                 Button {
                     tag(text: input_text)

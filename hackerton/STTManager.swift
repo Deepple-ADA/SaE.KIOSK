@@ -33,9 +33,9 @@ class SpeechManager: ObservableObject {
         recognitionRequest.shouldReportPartialResults = true //true -> 실시간으로 변환
         // recognitionRequest.shouldReportPartialResults = false //false -> 종료 후 한꺼번에 변환
         
-        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [self] result, error in
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             if let result = result {
-                self.outputText = convert(result.bestTranscription.formattedString)
+                self?.outputText = self?.convert(result.bestTranscription.formattedString) ?? ""
             } else if let error = error {
                 print(error)
             }
@@ -80,13 +80,18 @@ class SpeechManager: ObservableObject {
     
 }
 
-struct OrderButtonView: View {
+
+protocol STTModelProtocol {
+    var outputText: String { get set }
+}
+
+
+struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
-    @State private var result: [String] = []
+
+    @State var view: STTModelProtocol
     
-    var wordTaggerView: WordTaggerView
-    
-    var body: some View{
+    var body: some View {
         VStack {
             //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
             
@@ -96,21 +101,19 @@ struct OrderButtonView: View {
             
             Button(action: {
                 if speechManager.isRecording {
-                    result.append(speechManager.outputText)
-                    wordTaggerView.$input_text.wrappedValue = speechManager.outputText
-                    print(result)
+                    view.outputText = speechManager.outputText
                     speechManager.stopRecording()
-                    
-                    
+
                 } else {
                     speechManager.startRecording()
                 }
-            }) {
-                Text(speechManager.isRecording ? "녹음 중단" : "녹음 시작")
+            })
+            {
+                Image(speechManager.isRecording ? "smileFace" : "soundEffect")
+                    .resizable()
+                    .frame(width: 100, height: 100)
             }
         }
-        
-        RoundedRectangle(cornerRadius: 32)
-        //.frame(width: 464, height: 604)
+
     }
 }

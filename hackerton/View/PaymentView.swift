@@ -126,3 +126,4 @@ struct PaymentView_Previews: PreviewProvider {
         PaymentView(isLinkActive: .constant(true))
     }
 }
+

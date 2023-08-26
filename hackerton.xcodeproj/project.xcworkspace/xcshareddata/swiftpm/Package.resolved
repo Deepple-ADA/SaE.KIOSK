@@ -8,6 +8,24 @@
         "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
         "version" : "5.7.1"
       }
+    },
+    {
+      "identity" : "koreandecomposer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vanism2091/KoreanDecomposer",
+      "state" : {
+        "revision" : "77a34fa43c0247dede911759dd14ca562fdd6860",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "wordcorrector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vanism2091/WordCorrector",
+      "state" : {
+        "revision" : "68eff003d527806e1df4d4f6c0b8823a2acbde90",
+        "version" : "1.0.2"
+      }
     }
   ],
   "version" : 2

@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var stack: NavigationPath = NavigationPath()
+    @State private var isLinkActive = false
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 32) {
-                advertisementView
-                HStack{
-                    bottomLeftView
-                    orderBtn
+        ZStack {
+            ARKitView(isTracking: $isLinkActive)
+            NavigationStack {
+                VStack(spacing: 32) {
+                    advertisementView
+                    HStack{
+                        bottomLeftView
+                        orderBtn
+                    }
+                }
+                .navigationDestination(isPresented: $isLinkActive) {
+                    MenuView(isLinkActive: $isLinkActive)
                 }
             }
-            .navigationDestination(for: String.self) { string in
-                MenuView(stack: $stack)
-                
-            }
-        }
+        }//ZStack
     }
     
     private var advertisementView: some View {
@@ -58,7 +60,9 @@ struct ContentView: View {
     }
     
     private var orderBtn: some View {
-        NavigationLink(value: "MenuView") {
+        Button {
+            isLinkActive = true
+        } label: {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }

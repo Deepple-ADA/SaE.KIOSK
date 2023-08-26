@@ -18,12 +18,15 @@
 		4221DF312A989DE200F532F1 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF302A989DE200F532F1 /* PaymentView.swift */; };
 		4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF322A98B4F800F532F1 /* Menuable.swift */; };
 		4221DF382A98BAC500F532F1 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF372A98BAC500F532F1 /* IntExtension.swift */; };
+		4221DF4A2A99915D00F532F1 /* ARKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221DF492A99915D00F532F1 /* ARKitView.swift */; };
 		9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */; };
 		9834FF4A2A97A65400F4A980 /* WordTaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */; };
 		9834FF4C2A97A65A00F4A980 /* WordTaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */; };
+
 		B2EDD62D2A999D9B0017EEF8 /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */; };
 		B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62E2A999E060017EEF8 /* StringExtension.swift */; };
 		B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD6312A99A03D0017EEF8 /* WordCorrector */; };
+
 		B52523772A990168004FC2C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B52523762A990168004FC2C3 /* Alamofire */; };
 		B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52523782A9901A9004FC2C3 /* KioskRequest.swift */; };
 		B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237A2A9901D5004FC2C3 /* OrderVO.swift */; };
@@ -49,11 +52,14 @@
 		4221DF302A989DE200F532F1 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		4221DF322A98B4F800F532F1 /* Menuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menuable.swift; sourceTree = "<group>"; };
 		4221DF372A98BAC500F532F1 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		4221DF492A99915D00F532F1 /* ARKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitView.swift; sourceTree = "<group>"; };
 		9834FF442A97A62B00F4A980 /* WordTagger1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WordTagger1.mlmodel; sourceTree = "<group>"; };
 		9834FF492A97A65400F4A980 /* WordTaggerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerViewModel.swift; sourceTree = "<group>"; };
 		9834FF4B2A97A65A00F4A980 /* WordTaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTaggerView.swift; sourceTree = "<group>"; };
+
 		B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		B2EDD62E2A999E060017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+
 		B52523782A9901A9004FC2C3 /* KioskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KioskRequest.swift; sourceTree = "<group>"; };
 		B525237A2A9901D5004FC2C3 /* OrderVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVO.swift; sourceTree = "<group>"; };
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 		4221DF192A97258E00F532F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4221DF462A9990E000F532F1 /* AR */,
 				4221DF2D2A97533D00F532F1 /* CardView */,
 				B5C7396A2A8D202E005CFC2C /* ContentView.swift */,
 				4221DF1D2A9725D400F532F1 /* MenuView.swift */,
@@ -123,6 +130,14 @@
 				4221DF2E2A989A7E00F532F1 /* OrderCardView.swift */,
 			);
 			path = CardView;
+			sourceTree = "<group>";
+		};
+		4221DF462A9990E000F532F1 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				4221DF492A99915D00F532F1 /* ARKitView.swift */,
+			);
+			path = AR;
 			sourceTree = "<group>";
 		};
 		9834FF462A97A63300F4A980 /* MLModel */ = {
@@ -289,6 +304,7 @@
 				4221DF382A98BAC500F532F1 /* IntExtension.swift in Sources */,
 				B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */,
 				B525237F2A990202004FC2C3 /* MenuVO.swift in Sources */,
+				4221DF4A2A99915D00F532F1 /* ARKitView.swift in Sources */,
 				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
 				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
@@ -425,16 +441,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,16 +475,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"hackerton/Preview Content\"";
-				DEVELOPMENT_TEAM = X32GZ3NKQ8;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = hackerton/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

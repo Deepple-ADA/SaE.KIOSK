@@ -15,7 +15,7 @@ struct MenuView: View, STTModelProtocol {
     @State var outputText = ""
     
     @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     let columns = [
         GridItem(.adaptive(minimum: 431))
     ]
@@ -119,7 +119,7 @@ struct MenuView: View, STTModelProtocol {
     
     
     private var goToOrderListBtn: some View {
-        NavigationLink(destination: OrderListView(stack: $stack, cart: $cart)) {
+        NavigationLink(destination: OrderListView(isLinkActive: $isLinkActive, cart: $cart)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)
@@ -154,8 +154,8 @@ struct MenuView: View, STTModelProtocol {
     
 }
 
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView(outputText: "", stack: .constant(NavigationPath()))
-//    }
-//}
+struct MenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuView(isLinkActive: .constant(true), outputText: "", stack: .constant(NavigationPath()))
+    }
+}

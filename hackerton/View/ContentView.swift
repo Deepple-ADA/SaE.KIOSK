@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLinkActive = false
+    @State private var isRecommend = false
     
     var body: some View {
         ZStack {
@@ -22,7 +23,7 @@ struct ContentView: View {
                     }
                 }
                 .navigationDestination(isPresented: $isLinkActive) {
-                    MenuView(isLinkActive: $isLinkActive)
+                    MenuView(isLinkActive: $isLinkActive, isRecommend: $isRecommend)
                 }
             }
         }//ZStack

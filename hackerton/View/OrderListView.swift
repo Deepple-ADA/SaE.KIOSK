@@ -86,7 +86,8 @@ struct OrderListView: View {
                     .background(Color(red: 0.94, green: 0.95, blue: 0.96))
                     .cornerRadius(32)
                 )
-            Text("₩ 100,000")
+            
+            Text("￦ \(calculateTotal(menuArray: cart))")
                 .font(.system(size: 64, weight: .bold))
                 .foregroundColor(.black)
         }

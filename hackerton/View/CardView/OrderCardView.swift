@@ -73,7 +73,7 @@ struct OrderCardView: View {
                     .cornerRadius(16)
                     .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                     .overlay(
-                        Image("trash")
+                        Image(systemName: "trash")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70, height: 90)

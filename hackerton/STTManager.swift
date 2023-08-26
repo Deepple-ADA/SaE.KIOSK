@@ -107,7 +107,7 @@ struct STTManager: View {
             if speechManager.isRecording { //종료
                 view.outputText = speechManager.outputText
                 speechManager.stopRecording()
-                //speechManager.checkRecommend(input: speechManager.outputText)
+
                 
                 if speechManager.outputText.contains("추천") { //추천
                     isRecommend = true
@@ -122,11 +122,15 @@ struct STTManager: View {
                     let menusVO = orders.map { order in
                         MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
                     }
-                   
-                    addToCart(items: menusVO)
+   
+                    // tts speaking - 더 필요?
+                let ttsSentence = TTSSentences.needMore(check: menusVO)
+                TextToSpeechManager.shared.speak(string: ttsSentence)
+                addToCart(items: menusVO)
                 }
                 
             } else { //시작
+                TextToSpeechManager.shared.stop()
                 speechManager.startRecording()
                 
             }

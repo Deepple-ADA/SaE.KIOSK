@@ -37,6 +37,9 @@ struct MenuView: View, STTModelProtocol {
             RecommendView(isRecommend: $isRecommend)
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            TextToSpeechManager.shared.speak(string: TTSSentences.initialGuide)
+        }
         
     }
     

@@ -15,7 +15,7 @@ struct AfterPaymentView: View {
             mainView
             Spacer().frame(height: 72)
             goToMainViewBtn
-            Spacer().frame(height: 226)
+            Spacer().frame(height: 186)
             bottomView
             Spacer().frame(height: 11)
             cancelOrderBtn
@@ -26,8 +26,8 @@ struct AfterPaymentView: View {
     
     private var mainView: some View {
         VStack {
-            Image("lastIcon")
-                .frame(width: 259, height: 259)
+            LottieView(filename: "logo")
+                .frame(width: 300, height: 300)
             Spacer().frame(height: 72)
             VStack(spacing: 0) {
                 Text("주문해주셔서")

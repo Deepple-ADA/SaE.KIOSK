@@ -132,8 +132,6 @@ struct MenuView: View, STTModelProtocol {
         }
         
     }
-    
-    
 }
 
 //struct MenuView_Previews: PreviewProvider {

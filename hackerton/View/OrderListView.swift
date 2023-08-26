@@ -77,12 +77,20 @@ struct OrderListView: View {
     }
     private var bottomInfoView: some View {
         HStack(spacing: 27) {
-            Image("smileIcon")
-            Text("￦ \(calculateTotal(menuArray: cart))")
+            LottieView(filename: "logo")
+                .frame(width: 86, height: 86)
+                .background(
+                    Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 118, height: 118)
+                    .background(Color(red: 0.94, green: 0.95, blue: 0.96))
+                    .cornerRadius(32)
+                )
+            Text("₩ 100,000")
                 .font(.system(size: 64, weight: .bold))
                 .foregroundColor(.black)
         }
-        .padding(.leading, 35)
+        .padding(.leading, 45)
     }
     
     private var goToPaymentViewBtn: some View {

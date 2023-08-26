@@ -26,6 +26,7 @@ struct ContentView: View {
                 }
             }
         }//ZStack
+        .statusBar(hidden: true)
     }
     
     private var advertisementView: some View {
@@ -40,7 +41,8 @@ struct ContentView: View {
     private var bottomLeftView: some View {
         HStack(spacing: 30){
             VStack(spacing: 53) {
-                Image("smileFace")
+                LottieView(filename: "logo")
+                    .frame(width:200, height: 200)
                 VStack{
                     Text("음성으로 주문하려면")
                         .foregroundColor(.Textprimary)

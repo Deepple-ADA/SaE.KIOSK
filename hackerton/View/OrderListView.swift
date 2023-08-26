@@ -107,7 +107,7 @@ struct OrderListView: View {
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView(isLinkActive: .constant(true))
+        OrderListView(isLinkActive: .constant(true), cart: .constant([]))
     }
 }
 

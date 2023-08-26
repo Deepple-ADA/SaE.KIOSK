@@ -21,6 +21,7 @@ struct ContentView: View {
             }
             .navigationDestination(for: String.self) { string in
                 MenuView(stack: $stack)
+                
             }
         }
     }

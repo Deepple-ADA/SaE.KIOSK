@@ -83,12 +83,17 @@ class SpeechManager: ObservableObject {
 
 protocol STTModelProtocol {
     var outputText: String { get set }
+    var cart: [MenuVO] { get set }
 }
-
+//
+//protocol haveCartProtocol {
+//    var cart: [MenuVO] { get set }
+//}
 
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
-
+    @StateObject var wordTaggerViewModel = WordTaggerViewModel()
+    
     @State var view: STTModelProtocol
     
     var body: some View {
@@ -104,12 +109,29 @@ struct STTManager: View {
                     view.outputText = speechManager.outputText
                     speechManager.stopRecording()
 
+                    print("why...???")
+                    wordTaggerViewModel.tag(text: speechManager.outputText)
+                    let menus = wordTaggerViewModel.getMenus()
+                    print(menus)
+                    
+                    // [[String]] -> [Order]
+                    let orders = MenuCreator.convert(predictions: menus)
+
+                    // [Order] -> [MenuVO]
+                    let menusVO = orders.map { order in
+                        MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
+                    }
+                    print(orders)
+                    print(menusVO)
+                    
+                    view.cart = view.cart + menusVO
+                                    
                 } else {
                     speechManager.startRecording()
                 }
             })
             {
-                Image(speechManager.isRecording ? "smileFace" : "soundEffect")
+                Image(speechManager.isRecording ? "soundEffect" : "smileFace")
                     .resizable()
                     .frame(width: 100, height: 100)
             }

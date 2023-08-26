@@ -9,14 +9,9 @@ import SwiftUI
 
 public struct ChatView: View {
     @ObservedObject var viewModel = ViewModel()
-//    @Environment(\.dismiss) private var dismiss
 
-//    static let store = LocalStore.shared
-
-    public init() {
-    }
+    public init() { }
     public var body: some View {
-
         VStack {
             ScrollView {
                 LazyVStack {
@@ -28,16 +23,20 @@ public struct ChatView: View {
                 .padding()
 
             }
-//            .onAppear {
+            .onAppear {
 //                let results = Self.store.projects
 //                    .filter { $0.isSelected.value }
 //                    .map { ProjectResultEntity(project: $0) }
 //                guard let result = results.first else {
 //                    return
 //                }
-//                viewModel.updateCurrentInput(with: .from(entity: result))
-//                viewModel.sendMessage()
-//            }
+                viewModel.messages = [
+                    .init(id: UUID(), role: .assistant, content: "ass1", createAt: Date()),
+                    .init(id: UUID(), role: .system, content: "sys1", createAt: Date()),
+                    .init(id: UUID(), role: .user, content: "user1", createAt: Date()),
+                ]
+                viewModel.sendMessage()
+            }
 
         }
         .padding()

@@ -78,7 +78,7 @@ struct OrderListView: View {
     private var bottomInfoView: some View {
         HStack(spacing: 27) {
             Image("smileIcon")
-            Text("\(calculateTotal(menuArray: cart))")
+            Text("￦ \(calculateTotal(menuArray: cart))")
                 .font(.system(size: 64, weight: .bold))
                 .foregroundColor(.black)
         }

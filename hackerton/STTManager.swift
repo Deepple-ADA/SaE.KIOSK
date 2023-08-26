@@ -93,21 +93,23 @@ protocol STTModelProtocol {
 struct STTManager: View {
     @StateObject private var speechManager = SpeechManager()
     @StateObject var wordTaggerViewModel = WordTaggerViewModel()
+    @State private var checkRunning = false
     
     @State var view: STTModelProtocol
     
     var body: some View {
         VStack {
             //여기 speechManager.outputText를 베니AI가 만든 ML에 넣어야 됨
-            
-            Text(speechManager.outputText)
-                .foregroundColor(.black)
-                .padding()
+//
+//            Text(speechManager.outputText)
+//                .foregroundColor(.black)
+//                .padding()
             
             Button(action: {
                 if speechManager.isRecording {
                     view.outputText = speechManager.outputText
                     speechManager.stopRecording()
+                    checkRunning = false
 
                     print("why...???")
                     wordTaggerViewModel.tag(text: speechManager.outputText)
@@ -128,6 +130,7 @@ struct STTManager: View {
                                     
                 } else {
                     speechManager.startRecording()
+                    checkRunning = true
                 }
             })
             {

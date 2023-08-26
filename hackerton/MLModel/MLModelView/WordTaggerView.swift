@@ -60,7 +60,7 @@ struct WordTaggerView: View {
     func tag(text: String){
         do {
             let config = MLModelConfiguration()
-            let model = try WordTagger1(configuration: config)
+            let model = try WordTagger2(configuration: config)
             let prediction = try model.prediction(text: text)
             
             predictionTokens = prediction.tokens

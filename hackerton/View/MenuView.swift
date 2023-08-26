@@ -21,7 +21,6 @@ struct MenuView: View, STTModelProtocol {
     ]
     
     @State var cart: [MenuVO] = []
-    
 
     var body: some View {
         VStack(spacing: 28) {
@@ -87,21 +86,17 @@ struct MenuView: View, STTModelProtocol {
                     
                 } label: {
                     STTManager(view: self)
-                        .offset(x:0, y: -15)
-                    
                 }
                 VStack(spacing: 13) {
-                    Text("\(outputText)----")
-                        .font(.system(size: 24))
+                    Text(speechManager.isRecording ? "\(outputText)" : "아래와 같이 말씀해보세요")
+                        .font(.system(size: 20))
                         .foregroundColor(.TextSecondary)
                     Text("""
-                         새우깡 하나 담기
-                         땅콩이 들어가지 않은 메뉴 추천
+                         새우깡 하나 줘
+                         바삭한 과자 추천해줘
                          커피 메뉴 보기
                          """)
-                    
-                    
-                    Text("\(outputText)----")
+//                    Text("\(outputText)----")
                         .font(.system(size: 20, weight: .bold))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.Textprimary)

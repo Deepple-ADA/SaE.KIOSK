@@ -39,30 +39,44 @@ struct MenuModel {
         }
     }
     enum Snack: String, CaseIterable, Identifiable, Menuable {
-        case 새우깡
+        case 초콜릿
+        case 소시지
         case 초코파이
-        case 참쌀설병
-        case 멘토스
-        case 마가렛드
+        case 스키틀즈
         case 후레쉬베리 = "후레쉬 베리"
         case 오트밀과자 = "오트밀 과자"
+        case 왕뚜껑
+        case 육개장
+        case 진라면
+        case 튀김우동
+        case 약과
         
         var description: MenuModel.Menu {
             switch self {
-            case .마가렛드:
-                return Menu(name: rawValue, price: 4000, desc: "핳하ㅏ하", image: "snack")
-            case .새우깡:
-                return Menu(name: rawValue, price: 1000, desc: "asd", image: "snack")
+            case .초콜릿:
+                return Menu(name: rawValue, price: 500, desc: "", image: "choco")
+            case .소시지:
+                return Menu(name: rawValue, price: 1000, desc: "", image: "Sosiji")
             case .초코파이:
-                return Menu(name: rawValue, price: 2000, desc: "asdd", image: "snack")
-            case .참쌀설병:
-                return Menu(name: rawValue, price: 3000, desc: "asdfd", image: "snack")
-            case .멘토스:
-                return Menu(name: rawValue, price: 2000, desc: "qwerd", image: "snack")
+                return Menu(name: rawValue, price: 2000, desc: "", image: "chochpi")
+            case .스키틀즈:
+                return Menu(name: rawValue, price: 1500, desc: "", image: "skittles")
             case .후레쉬베리:
-                return Menu(name: rawValue, price: 1000, desc: "werd", image: "snack")
+                return Menu(name: rawValue, price: 1200, desc: "", image: "Freshberry")
             case .오트밀과자:
-                return Menu(name: rawValue, price: 1000, desc: "werd", image: "snack")
+                return Menu(name: rawValue, price: 700, desc: "", image: "oatmeal")
+            case .왕뚜껑:
+                return Menu(name: rawValue, price: 1700, desc: "", image: "kingcap")
+            case .진라면:
+                return Menu(name: rawValue, price: 1200, desc: "", image: "jinramen")
+            case .진라면:
+                return Menu(name: rawValue, price: 1300, desc: "", image: "snack")
+            case .튀김우동:
+                return Menu(name: rawValue, price: 1100, desc: "", image: "udong")
+            case .약과:
+                return Menu(name: rawValue, price: 900, desc: "", image: "yakka")
+            case .육개장:
+                return Menu(name: rawValue, price: 1250, desc: "", image: "ukgaejang")
             }
         }
         var id: String {

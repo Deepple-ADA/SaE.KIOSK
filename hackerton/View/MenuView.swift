@@ -31,7 +31,7 @@ struct MenuView: View, STTModelProtocol {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            TextToSpeechManager.shared.speak(string: "원하는 상품을 말씀해주세요. 혹은 추천이 필요하시다면 “추천해주세요” 라고 말씀해주세요.")
+            TextToSpeechManager.shared.speak(string: TTSSentences.initialGuide)
         }
     }
     

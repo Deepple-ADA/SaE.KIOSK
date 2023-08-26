@@ -25,6 +25,7 @@
 		B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD62E2A999E060017EEF8 /* StringExtension.swift */; };
 		B2EDD6322A99A03D0017EEF8 /* WordCorrector in Frameworks */ = {isa = PBXBuildFile; productRef = B2EDD6312A99A03D0017EEF8 /* WordCorrector */; };
 		B2EDD6342A99E6760017EEF8 /* TextToSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD6332A99E6760017EEF8 /* TextToSpeechManager.swift */; };
+		B2EDD63B2A9A0F150017EEF8 /* TTSSentences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EDD63A2A9A0F150017EEF8 /* TTSSentences.swift */; };
 		B52523772A990168004FC2C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B52523762A990168004FC2C3 /* Alamofire */; };
 		B52523792A9901A9004FC2C3 /* KioskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52523782A9901A9004FC2C3 /* KioskRequest.swift */; };
 		B525237B2A9901D5004FC2C3 /* OrderVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525237A2A9901D5004FC2C3 /* OrderVO.swift */; };
@@ -56,6 +57,7 @@
 		B2EDD62C2A999D9B0017EEF8 /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		B2EDD62E2A999E060017EEF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B2EDD6332A99E6760017EEF8 /* TextToSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechManager.swift; sourceTree = "<group>"; };
+		B2EDD63A2A9A0F150017EEF8 /* TTSSentences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSSentences.swift; sourceTree = "<group>"; };
 		B52523782A9901A9004FC2C3 /* KioskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KioskRequest.swift; sourceTree = "<group>"; };
 		B525237A2A9901D5004FC2C3 /* OrderVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVO.swift; sourceTree = "<group>"; };
 		B525237C2A9901F2004FC2C3 /* OrderDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVO.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 			path = MLModelViewModel;
 			sourceTree = "<group>";
 		};
+		B2EDD6392A9A0EF80017EEF8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2EDD63A2A9A0F150017EEF8 /* TTSSentences.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		B5C7395C2A8D202E005CFC2C = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +181,7 @@
 		B5C739672A8D202E005CFC2C /* hackerton */ = {
 			isa = PBXGroup;
 			children = (
+				B2EDD6392A9A0EF80017EEF8 /* Data */,
 				9834FF462A97A63300F4A980 /* MLModel */,
 				B5C739942A934D5E005CFC2C /* Info.plist */,
 				B5C739682A8D202E005CFC2C /* hackertonApp.swift */,
@@ -296,6 +307,7 @@
 				4221DF2F2A989A7E00F532F1 /* OrderCardView.swift in Sources */,
 				4221DF332A98B4F800F532F1 /* Menuable.swift in Sources */,
 				B5C7396B2A8D202E005CFC2C /* ContentView.swift in Sources */,
+				B2EDD63B2A9A0F150017EEF8 /* TTSSentences.swift in Sources */,
 				9834FF452A97A62B00F4A980 /* WordTagger1.mlmodel in Sources */,
 				B2EDD62F2A999E060017EEF8 /* StringExtension.swift in Sources */,
 				B525237D2A9901F2004FC2C3 /* OrderDetailVO.swift in Sources */,

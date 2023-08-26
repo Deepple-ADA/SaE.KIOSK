@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrderListView: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     let menu = MenuModel.Beverage.allCases.randomElement()!.description
     
     var body: some View {
@@ -90,7 +90,7 @@ struct OrderListView: View {
     }
     
     private var goToPaymentViewBtn: some View {
-        NavigationLink(destination: PaymentView(stack: $stack)) {
+        NavigationLink(destination: PaymentView(isLinkActive: $isLinkActive)) {
             HStack {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 74))
@@ -110,6 +110,6 @@ struct OrderListView: View {
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView(stack: .constant(NavigationPath()))
+        OrderListView(isLinkActive: .constant(true))
     }
 }

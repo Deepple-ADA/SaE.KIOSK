@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     let columns = [
         GridItem(.adaptive(minimum: 431))
     ]
@@ -95,7 +95,7 @@ struct MenuView: View {
     }
     
     private var goToOrderListBtn: some View {
-        NavigationLink(destination: OrderListView(stack: $stack)) {
+        NavigationLink(destination: OrderListView(isLinkActive: $isLinkActive)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)
@@ -130,6 +130,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(stack: .constant(NavigationPath()))
+        MenuView(isLinkActive: .constant(true))
     }
 }

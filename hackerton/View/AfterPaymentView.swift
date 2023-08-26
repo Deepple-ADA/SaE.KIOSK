@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AfterPaymentView: View {
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     
     var body: some View {
         VStack(spacing: 0){
@@ -44,7 +44,7 @@ struct AfterPaymentView: View {
     
     private var goToMainViewBtn: some View {
         Button {
-            stack = .init()
+            isLinkActive = false
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -90,7 +90,7 @@ struct AfterPaymentView: View {
     
     private var cancelOrderBtn: some View {
         Button {
-            stack = .init()
+            isLinkActive = false
         } label: {
             Rectangle()
                 .foregroundColor(.clear)
@@ -111,6 +111,6 @@ struct AfterPaymentView: View {
 
 struct AfterPaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        AfterPaymentView(stack: .constant(NavigationPath()))
+        AfterPaymentView(isLinkActive: .constant(true))
     }
 }

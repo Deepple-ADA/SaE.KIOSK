@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isEyeTracking = false
-    @State var stack: NavigationPath = NavigationPath()
+    @State private var isLinkActive = false
     
     var body: some View {
         ZStack {
-            ARKitView(isTracking: $isEyeTracking)
-            NavigationStack(path: $stack) {
+            ARKitView(isTracking: $isLinkActive)
+            NavigationStack {
                 VStack(spacing: 32) {
                     advertisementView
                     HStack{
@@ -22,8 +21,8 @@ struct ContentView: View {
                         orderBtn
                     }
                 }
-                .navigationDestination(isPresented: $isEyeTracking) {
-                    MenuView(stack: $stack)
+                .navigationDestination(isPresented: $isLinkActive) {
+                    MenuView(isLinkActive: $isLinkActive)
                 }
             }
         }//ZStack
@@ -61,7 +60,9 @@ struct ContentView: View {
     }
     
     private var orderBtn: some View {
-        NavigationLink(value: "MenuView") {
+        Button {
+            isLinkActive = true
+        } label: {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }

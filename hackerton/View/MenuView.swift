@@ -33,6 +33,9 @@ struct MenuView: View, STTModelProtocol {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            TextToSpeechManager.shared.speak(string: TTSSentences.initialGuide)
+        }
     }
     
     private var menuTypeView: some View {

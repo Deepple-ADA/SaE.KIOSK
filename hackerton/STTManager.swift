@@ -103,6 +103,7 @@ struct STTManager: View {
             if speechManager.isRecording {
                 view.outputText = speechManager.outputText
                 speechManager.stopRecording()
+
                 
                 wordTaggerViewModel.tag(text: speechManager.outputText)
                 let menus = wordTaggerViewModel.getMenus()
@@ -114,10 +115,14 @@ struct STTManager: View {
                 let menusVO = orders.map { order in
                     MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
                 }
-                
+
+                // tts speaking - 더 필요?
+                let ttsSentence = TTSSentences.needMore(check: menusVO)
+                TextToSpeechManager.shared.speak(string: ttsSentence)
                 addToCart(items: menusVO)
                 
             } else {
+                TextToSpeechManager.shared.stop()
                 speechManager.startRecording()
             }
         } label: {

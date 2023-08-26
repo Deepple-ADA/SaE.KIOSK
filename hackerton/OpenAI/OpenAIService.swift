@@ -17,9 +17,9 @@ struct OpenAIService {
         let body = OpenAIChatBody(
             model: "gpt-3.5-turbo",
             messages: openAIMessages,
-            temperature: 0,
-            max_tokens: 2000, // TODO: hayo
-            top_p: 1 // TODO: hayo
+            temperature: 1,
+            max_tokens: 50,
+            top_p: 1
         )
 
         guard let url = URL(string: endpointUrl) else {

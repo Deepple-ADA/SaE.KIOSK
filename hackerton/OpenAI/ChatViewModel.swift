@@ -8,16 +8,12 @@ import Foundation
 
 extension ChatView {
     class ViewModel: ObservableObject {
-        @Published var messages: [Message] = [Message(id: UUID(), role: .system, content: prompt, createAt: Date())]
+        @Published var messages: [Message] = [Message(id: UUID(), role: .system, content: GPTRequestDataSource.preprompt)]
         @Published var currentInput = ""
         private let openAIService = OpenAIService()
 
-        func updateCurrentInput() {
-            print(currentInput)
-        }
-
         func sendMessage() {
-            let newMessage = Message(id: UUID(), role: .user, content: currentInput, createAt: Date())
+            let newMessage = Message(id: UUID(), role: .user, content: currentInput)
             messages.append(newMessage)
 
             Task {
@@ -28,7 +24,7 @@ extension ChatView {
                         return
                     }
 
-                    let receivedMessage = Message(id: UUID(), role: receivedOpenAIMessage.role, content: receivedOpenAIMessage.content, createAt: Date())
+                    let receivedMessage = Message(id: UUID(), role: receivedOpenAIMessage.role, content: receivedOpenAIMessage.content)
 
                     DispatchQueue.main.async {
                         self.messages.append(receivedMessage)
@@ -46,5 +42,4 @@ struct Message: Decodable {
     let id: UUID
     let role: SenderRole
     let content: String
-    let createAt: Date
 }

@@ -4,49 +4,18 @@
 //
 //  Created by sei on 2023/08/26.
 //
-
+//
 import Foundation
 import Alamofire
 
 
-struct OpenAIChatMessage2: Codable {
-    let role: SenderRole
-    let content: String
-}
-
-class GPTRequest {
-    static let shared = GPTRequest()
-    static let apiUrl = "https://api.openai.com/v1/chat/completions"
-
-    private init() {}
-
-    func ask(prompt: String, completion: @escaping () -> Void) {
-
-        let chat: [[String : String]] = [
-            [
-                "role": "user",
-                "content": GPTRequestDataSource.preprompt
-            ],
-            [
-                "role": "robot",
-                "content": GPTRequestDataSource.prepromptAnswer
-            ],
-        ]
-
-        let jsonBody: [String : Any] = [
-            "model": "gpt-3.5-turbo",
-            "messages": chat
-        ]
-
-        AF.request(URL(string: GPTRequest.apiUrl)!, method: .post, parameters: jsonBody, encoding: URLEncoding.default)
-            .validate(statusCode: 200..<300)
-
-    }
-}
-
 class GPTRequestDataSource {
     static let preprompt = """
 다음과 같은 메뉴가 있고, 다음 채팅부터 사용자가 원하는 요구사항을 전달할 예정
+항목은 최소 1개에서 최대 3개까지 추천할 것.
+답변을 데이터로 파싱해서 활용할 수 있도록, 오직 메뉴명만 콤마(,)로 구분해서 답변할 것
+메뉴명만 주되, ''는 빼고 답변해줘
+예시: 후레쉬 베리, 초콜릿, 초코파이
 
 '후레쉬 베리' : 간식. 달달하고 푹신한 과자류이며 과일 맛이 함유되어 있음. 파이류.
 '초코파이': 간식. 달달하고 푹신한 과자. 마시멜로우가 포함되어 있으며 식사 대용으로 좋음. 후레쉬 베리와 마찬가지로 파이류. 갈색.
@@ -74,18 +43,16 @@ class GPTRequestDataSource {
 '진라면': 간식. 짭짤 매콤한 맛. 라면. 매운 맛이 조금 강함. 양이 적음.
 '튀김우동': 간식. 짭짤한 맛. 라면. 가장 순한 맛. 양이 적음. 너무 자극적이지 않은 라면을 먹고 싶을 때 좋음.
 
-항목은 최소 1개에서 최대 3개까지 추천할 것.
-답변을 데이터로 파싱해서 활용할 수 있도록, 오직 메뉴명만 콤마(,)로 구분해서 답변할 것
-(예: 후레쉬 베리, 초콜릿, 초코파이)
 """
-
-    static let prepromptAnswer = """
-알겠습니다! 사용자가 원하는 요구사항을 전달하실 때 메뉴명만 콤마(,)로 구분하여 답변해 드릴 것입니다.요구사항을 전달하실 준비가 되셨으면 언제든지 말씀해주세요.
-"""
-
-    static let promptTemplate = """
-\"{TEXT}\"
-답변을 데이터로 파싱해서 활용할 수 있도록, 오직 메뉴명만 콤마(,)로 구분해서 답변할 것
-(예: 후레쉬 베리, 초콜릿, 초코파이)
-"""
+//    static let prepromptAnswer = """
+//알겠습니다! 사용자가 원하는 요구사항을 전달하실 때 메뉴명만 콤마(,)로 구분하여 답변해 드릴 것입니다.요구사항을 전달하실 준비가 되셨으면 언제든지 말씀해주세요.
+//"""
+//
+//    static let promptTemplate = """
+//\"{TEXT}\"
+//답변을 데이터로 파싱해서 활용할 수 있도록, 오직 메뉴명만 콤마(,)로 구분해서 답변해줘
+//예를 들자면
+//후레쉬 베리, 초콜릿, 초코파이
+//와 같이 메뉴명만 답으로 줘
+//"""
 }

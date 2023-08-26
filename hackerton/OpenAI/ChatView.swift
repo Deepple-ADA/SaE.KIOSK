@@ -8,8 +8,8 @@
 import SwiftUI
 
 public struct ChatView: View {
-    @ObservedObject var viewModel = ViewModel()
-
+    @StateObject var viewModel = ViewModel()
+    
     public init() { }
     public var body: some View {
         VStack {
@@ -18,29 +18,34 @@ public struct ChatView: View {
                     ForEach(viewModel.messages.filter({$0.role != .system}), id: \.id) { message in
                         messageView(message: message)
                     }
-
+                    
                 }
                 .padding()
-
+                
             }
-            .onAppear {
-//                let results = Self.store.projects
-//                    .filter { $0.isSelected.value }
-//                    .map { ProjectResultEntity(project: $0) }
-//                guard let result = results.first else {
-//                    return
-//                }
-                viewModel.messages = [
-                    .init(id: UUID(), role: .assistant, content: "ass1", createAt: Date()),
-                    .init(id: UUID(), role: .system, content: "sys1", createAt: Date()),
-                    .init(id: UUID(), role: .user, content: "user1", createAt: Date()),
-                ]
-                viewModel.sendMessage()
+            HStack {
+                TextField("text here...", text: $viewModel.currentInput)
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.white)
+                            .frame(height: 48)
+                    )
+                Button {
+                    viewModel.sendMessage()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.black)
+                            .frame(width: 80, height: 48)
+                        Text("Send")
+                            .foregroundColor(.white)
+                    }
+                }
             }
-
         }
         .padding()
-
+        
     }
     func messageView(message: Message) -> some View {
         HStack {
@@ -53,10 +58,10 @@ public struct ChatView: View {
                     .background(message.role == .assistant ? .blue : .gray.opacity(0.1))
                     .cornerRadius(16)
             }
-
+            
         }
     }
-
+    
 }
 
 struct ChatView_Previews: PreviewProvider {

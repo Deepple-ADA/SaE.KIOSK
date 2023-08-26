@@ -9,8 +9,9 @@ import SwiftUI
 
 struct OrderListView: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     let menu = MenuModel.Beverage.allCases.randomElement()!.description
+    @Binding var cart: [MenuVO]
     
     var body: some View {
         VStack {
@@ -29,11 +30,7 @@ struct OrderListView: View {
                 goToPaymentViewBtn
             }
         }
-        
         .navigationBarBackButtonHidden(true)
-//        .navigationDestination(for: String.self) { string in
-//            PaymentView(stack: $stack)
-//        }
     }
     
     private var title: some View {
@@ -65,32 +62,40 @@ struct OrderListView: View {
     private var orderMenuListView: some View {
         ScrollView{
             LazyVStack(alignment: .center){
-                //cart: [MenuVO]를 ForEach로 돌려야할듯
-                ForEach(0..<3) { _ in // 원하는 숫자로 변경
-                    OrderCardView(menu: menu)
+                ForEach($cart, id: \.self) { item in
+                    OrderCardView(item: item, cart: $cart)
                 }
             }
+            .padding(.top, 60)
+            .background(
+                RoundedRectangle(cornerRadius: 32)
+                    .fill(Color.BackgroundSecondary)
+                    .frame(width: 960, height: 1006)
+            )
         }
-        .padding(.top, 60)
-        .background(
-            RoundedRectangle(cornerRadius: 32)
-                .fill(Color.BackgroundSecondary)
-                .frame(width: 960, height: 1006)
-        )
+        
     }
-    
     private var bottomInfoView: some View {
         HStack(spacing: 27) {
-            Image("smileIcon")
-            Text("₩ 100,000")
+            LottieView(filename: "logo")
+                .frame(width: 86, height: 86)
+                .background(
+                    Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 118, height: 118)
+                    .background(Color(red: 0.94, green: 0.95, blue: 0.96))
+                    .cornerRadius(32)
+                )
+            
+            Text("￦ \(calculateTotal(menuArray: cart))")
                 .font(.system(size: 64, weight: .bold))
                 .foregroundColor(.black)
         }
-        .padding(.leading, 35)
+        .padding(.leading, 45)
     }
     
     private var goToPaymentViewBtn: some View {
-        NavigationLink(destination: PaymentView(stack: $stack)) {
+        NavigationLink(destination: PaymentView(isLinkActive: $isLinkActive)) {
             HStack {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 74))
@@ -106,10 +111,14 @@ struct OrderListView: View {
         }
     }
     
-}
-
-struct OrderListView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderListView(stack: .constant(NavigationPath()))
+    func calculateTotal(menuArray: [MenuVO]) -> Int {
+        return menuArray.reduce(0) { $0 + ($1.price * $1.amount) }
     }
 }
+
+//struct OrderListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderListView(isLinkActive: .constant(true))
+//    }
+//}
+//

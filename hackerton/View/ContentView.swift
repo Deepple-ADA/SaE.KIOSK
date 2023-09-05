@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var stack: NavigationPath = NavigationPath()
+    @State private var isLinkActive = false
+    @State private var isRecommend = false
     
     var body: some View {
-        NavigationStack(path: $stack) {
-            VStack(spacing: 32) {
-                advertisementView
-                HStack{
-                    bottomLeftView
-                    orderBtn
+        ZStack {
+            ARKitView(isTracking: $isLinkActive)
+            NavigationStack {
+                VStack(spacing: 32) {
+                    advertisementView
+                    HStack{
+                        bottomLeftView
+                        orderBtn
+                    }
+                }
+                .navigationDestination(isPresented: $isLinkActive) {
+                    MenuView(isLinkActive: $isLinkActive, isRecommend: $isRecommend)
                 }
             }
-            .navigationDestination(for: String.self) { string in
-                MenuView(stack: $stack)
-            }
-        }
+        }//ZStack
+        .statusBar(hidden: true)
     }
     
     private var advertisementView: some View {
@@ -37,7 +42,8 @@ struct ContentView: View {
     private var bottomLeftView: some View {
         HStack(spacing: 30){
             VStack(spacing: 53) {
-                Image("smileFace")
+                LottieView(filename: "logo")
+                    .frame(width:200, height: 200)
                 VStack{
                     Text("음성으로 주문하려면")
                         .foregroundColor(.Textprimary)
@@ -57,16 +63,19 @@ struct ContentView: View {
     }
     
     private var orderBtn: some View {
-        NavigationLink(value: "MenuView") {
+        Button {
+            isLinkActive = true
+        } label: {
             Image("orderBtn")
                 .frame(width: 464, height: 604)
         }
+       
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

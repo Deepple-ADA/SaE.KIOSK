@@ -6,13 +6,23 @@
 //
 
 import SwiftUI
+import Foundation
+import CoreML
 
-struct MenuView: View {
+
+struct MenuView: View, STTModelProtocol {
+    @StateObject private var speechManager = SpeechManager()
+    @State var outputText = ""
+    @State private var isShowingRecommendSheet = false
+    
     @State private var selectedProductType: MenuModel.ProductType? = MenuModel.ProductType.allCases.first
-    @Binding var stack: NavigationPath
+    @Binding var isLinkActive: Bool
     let columns = [
         GridItem(.adaptive(minimum: 431))
     ]
+   // @Binding var checkRunning: Bool
+    @State var cart: [MenuVO] = []
+    @Binding var isRecommend: Bool
     
     var body: some View {
         VStack(spacing: 28) {
@@ -23,7 +33,14 @@ struct MenuView: View {
                 goToOrderListBtn
             }
         }
+        .sheet(isPresented: $isRecommend) {
+            RecommendView(isRecommend: $isRecommend, order: $outputText)
+        }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            TextToSpeechManager.shared.speak(string: TTSSentences.initialGuide)
+        }
+        
     }
     
     private var menuTypeView: some View {
@@ -47,15 +64,15 @@ struct MenuView: View {
                             switch selectedProductType {
                             case .snack:
                                 ForEach(MenuModel.Snack.allCases) {snack in
-                                    MenuCardView(menu: snack.description)
+                                    MenuCardView(menu: snack.description, cart: $cart)
                                 }
                             case .coffee:
                                 ForEach(MenuModel.Coffee.allCases) {coffee in
-                                    MenuCardView(menu: coffee.description)
+                                    MenuCardView(menu: coffee.description, cart: $cart)
                                 }
                             case .beverage:
                                 ForEach(MenuModel.Beverage.allCases) {beverage in
-                                    MenuCardView(menu: beverage.description)
+                                    MenuCardView(menu: beverage.description, cart: $cart)
                                 }
                             }
                         }
@@ -70,36 +87,35 @@ struct MenuView: View {
     }
     
     private var infoView: some View {
-        HStack(spacing: 32){
-            Image("smileFace")
-                .resizable()
-                .frame(width: 117, height: 117)
-            VStack(spacing: 13) {
-                Text("화면을 바라보고 이렇게 말씀해보세요")
-                    .font(.system(size: 24))
-                    .foregroundColor(.TextSecondary)
-                Text("""
-                새우깡 하나 담기
-                땅콩이 들어가지 않은 메뉴 추천
-                커피 메뉴 보기
-                """)
-                .font(.system(size: 20, weight: .bold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.Textprimary)
+        VStack {
+            HStack(spacing: 32) {
+                Button {
+                    
+                } label: {
+                    HStack{
+                        STTManager(isRecommend: $isRecommend, view: self)
+                            .padding()
+                    }
+                    
+                }
+                
             }
+            .foregroundColor(.clear)
+            .frame(width: 618, height: 156)
+            .background(Color.BackgroundSecondary)
+            .cornerRadius(32)
+            
         }
-        .foregroundColor(.clear)
-        .frame(width: 618, height: 156)
-        .background(Color.BackgroundSecondary)
-        .cornerRadius(32)
     }
     
+    
+    
     private var goToOrderListBtn: some View {
-        NavigationLink(destination: OrderListView(stack: $stack)) {
+        NavigationLink(destination: OrderListView(isLinkActive: $isLinkActive, cart: $cart)) {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 314, height: 156)
-                .background(Color.TextTertiary)
+                .background(cart.isEmpty ? Color.TextTertiary : Color.AccentPrimary)
                 .cornerRadius(32)
                 .overlay(
                     HStack(spacing: 26) {
@@ -116,7 +132,7 @@ struct MenuView: View {
                                 .frame(width: 132, height: 2)
                                 .background(Color.TextSecondary)
                             Spacer().frame(height: 2)
-                            Text("항목 없음")
+                            Text(cart.isEmpty ? "항목 없음" : "\(cart.count)개 항목 결제")
                                 .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(.white.opacity(0.6))
                                 .multilineTextAlignment(.center)
@@ -124,12 +140,12 @@ struct MenuView: View {
                     }
                 )
         }
+        
     }
-    
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView(stack: .constant(NavigationPath()))
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuView(isLinkActive: .constant(true), outputText: "", stack: .constant(NavigationPath()))
+//    }
+//}

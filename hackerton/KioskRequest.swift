@@ -10,7 +10,7 @@ import Alamofire
 
 class APIUrls {
 //    private static let BASE_URL = "https://soc06212.iptime.org:8812"
-    private static let BASE_URL = "http://127.0.0.1:8812"
+    private static let BASE_URL = "http://158.247.201.220"
     static let fetchOrderList = "\(BASE_URL)/api/order"
     static func fetchOrderDetail(orderId: Int) -> String {
         return "\(BASE_URL)/api/order/\(orderId)"

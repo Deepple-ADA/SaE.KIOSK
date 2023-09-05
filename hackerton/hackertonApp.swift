@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct hackertonApp: App {
+    @StateObject var chatGPTManager: ChatGPTManager = .init()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(chatGPTManager)
         }
     }
 }

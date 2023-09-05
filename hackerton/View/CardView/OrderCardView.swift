@@ -13,7 +13,10 @@ struct OrderCardView: View {
     
     @State private var showAlert = false
     
-    let menu: MenuModel.Menu
+    @Binding var item: MenuVO
+    @Binding var cart: [MenuVO]
+    
+ 
     
     var body: some View {
         HStack{
@@ -25,15 +28,15 @@ struct OrderCardView: View {
                 .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                 .overlay(
                     HStack {
-                        Image(menu.image)
+                        Image(item.optionalImage ?? "준비중이미지")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 178, height: 178)
                         VStack{
-                            Text(menu.name)
+                            Text(item.productName)
                                 .font(.system(size: 48, weight: .bold))
                                 .foregroundColor(.black)
-                            Text("￦ \(menu.price.decimal)")
+                            Text("￦ \(item.price.decimal)")
                                 .font(.system(size: 36, weight: .bold))
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.gray)
@@ -44,13 +47,13 @@ struct OrderCardView: View {
                         Spacer()
                         
                         VStack{
-                            Stepper(value: $count){
-                                Text("수량 : \(count)")
+                            Stepper(value: $item.amount, in: 0...100, step: 1){
+                                Text("수량 : \(item.amount)")
                                     .font(.system(size: 40))
                             }
                             .frame(width: 250)
                             
-                            Text("총액 : ￦\(count * menu.price)")
+                            Text("총액 : ￦\(item.amount * item.price)")
                                 .font(.system(size: 40))
                             
                         }
@@ -62,9 +65,6 @@ struct OrderCardView: View {
             
             Button {
                 showAlert.toggle()
-                //DB에서 삭제삭제
-                
-                
             } label: {
                 Rectangle()
                     .foregroundColor(.clear)
@@ -73,7 +73,7 @@ struct OrderCardView: View {
                     .cornerRadius(16)
                     .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                     .overlay(
-                        Image("trash")
+                        Image(systemName: "trash")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70, height: 90)
@@ -83,7 +83,10 @@ struct OrderCardView: View {
                             title: Text("주문취소"),
                             message: Text("선택한 상품을 삭제하시겠습니까?"),
                             primaryButton: .destructive(Text("삭제")) {
-                                print("삭제삭제 테스트용")
+                                if let index = cart.firstIndex(of: item) {
+                                    cart.remove(at: index)
+                                }
+                                
                             },
                             secondaryButton: .cancel(Text("취소"))
                         )
@@ -93,12 +96,12 @@ struct OrderCardView: View {
         }
     }
     
-
+    
 }
 
-struct OrderCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let menu = MenuModel.Beverage.allCases.randomElement()!.description
-        OrderCardView(menu: menu)
-    }
-}
+//struct OrderCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let menu = MenuModel.Beverage.allCases.randomElement()!.description
+//        OrderCardView(menu: menu)
+//    }
+//}

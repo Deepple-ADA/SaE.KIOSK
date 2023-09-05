@@ -22,6 +22,10 @@ class SpeechManager: ObservableObject {
     
     init() {
         speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko-KR"))
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch { }
     }
     
     func startRecording() {
@@ -77,9 +81,9 @@ class SpeechManager: ObservableObject {
         return convertedText
     }
     
-//    func checkRecommend(input: String) {
-//        isRecommendSentence = input.contains("추천")
-//    }
+    //    func checkRecommend(input: String) {
+    //        isRecommendSentence = input.contains("추천")
+    //    }
 }
 
 
@@ -95,7 +99,7 @@ struct STTManager: View {
     @State private var checkRunning = false
     @Binding var isRecommend: Bool
     @State var view: STTModelProtocol
-//    @StateObject var viewModel: ViewModel = .init()
+    //    @StateObject var viewModel: ViewModel = .init()
     
     var body: some View {
         VStack {
@@ -109,7 +113,7 @@ struct STTManager: View {
             if speechManager.isRecording { //종료
                 view.outputText = speechManager.outputText
                 speechManager.stopRecording()
-
+                
                 
                 if speechManager.outputText.contains("추천") {
                     //추천
@@ -129,11 +133,11 @@ struct STTManager: View {
                     let menusVO = orders.map { order in
                         MenuVO(productName: order.menu.name, price: order.menu.price, amount: order.count)
                     }
-   
+                    
                     // tts speaking - 더 필요?
-                let ttsSentence = TTSSentences.needMore(check: menusVO)
-                TextToSpeechManager.shared.speak(string: ttsSentence)
-                addToCart(items: menusVO)
+                    let ttsSentence = TTSSentences.needMore(check: menusVO)
+                    TextToSpeechManager.shared.speak(string: ttsSentence)
+                    addToCart(items: menusVO)
                 }
                 
             } else { //시작

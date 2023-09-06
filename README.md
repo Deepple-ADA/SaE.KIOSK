@@ -34,7 +34,7 @@ TEAM Deepple입니다.
 
 **Cowork**  
 
-<img height="23" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> [![Notion](https://img.shields.io/badge/Notion-FFFFFF?style=flat-square&logo=Notion&logoColor=black)](https://www.notion.so/MC3-70503eff657d443ab7c226662d992bc9)
+<img height="23" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> ![Notion](https://img.shields.io/badge/Notion-FFFFFF?style=flat-square&logo=Notion&logoColor=black)
   <img height="23" src="https://img.shields.io/badge/Miro-F2CA02?style=flat-square&logo=Miro&logoColor=black"/>
 <img height="23" src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white"/>  
 
@@ -67,8 +67,8 @@ TEAM Deepple입니다.
 ## 👩‍💻🧑‍💻 Authors
 
 
-|[<img src="https://github.com/seunggyun-jeong.png" width="100px">](https://github.com/seunggyun-jeong)|[<img src="https://github.com/up-ub.png" width="100px">](https://github.com/up-ub)|[<img src="https://github.com/chaen805.png" width="100px">](https://github.com/chaen805)|[<img src="https://github.com/Medi0202.png" width="100px">](https://github.com/Medi0202)|[<img src="https://github.com/HIBAR97.png" width="100px">](https://github.com/HIBAR97)|[<img src="https://github.com/kdb1217.png" width="100px">](https://github.com/kdb1217)|  
-|:----:|:----:|:----:|:----:|:----:|:----:|
+|[<img src="https://github.com/seunggyun-jeong.png" width="100px">](https://github.com/seunggyun-jeong)|[<img src="https://github.com/up-ub.png" width="100px">](https://github.com/up-ub)|[<img src="https://github.com/chaen805.png" width="100px">](https://github.com/chaen805)|[<img src="https://github.com/Medi0202.png" width="100px">](https://github.com/Medi0202)|[<img src="https://github.com/HIBAR97.png" width="100px">](https://github.com/HIBAR97)| 
+|:----:|:----:|:----:|:----:|:----:|
 |[Greed](https://github.com/Greeddk)|[Elcap](https://github.com/mgdgc)|[Moana](https://github.com/chaewon-moana)|[Ollie](https://github.com/vanism2091)|[Benny](https://github.com/ivorrr987)|
 <br>
 

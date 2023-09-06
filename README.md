@@ -7,7 +7,7 @@ TEAM Deepple입니다.
 
 <div align="leading">
   
-# Sae.KIOSK
+# SaE.KIOSK
 </div>
 
 <div align="center">

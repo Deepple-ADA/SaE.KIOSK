@@ -69,7 +69,7 @@ TEAM Deepple입니다.
 
 |[<img src="https://github.com/seunggyun-jeong.png" width="100px">](https://github.com/seunggyun-jeong)|[<img src="https://github.com/up-ub.png" width="100px">](https://github.com/up-ub)|[<img src="https://github.com/chaen805.png" width="100px">](https://github.com/chaen805)|[<img src="https://github.com/Medi0202.png" width="100px">](https://github.com/Medi0202)|[<img src="https://github.com/HIBAR97.png" width="100px">](https://github.com/HIBAR97)|[<img src="https://github.com/kdb1217.png" width="100px">](https://github.com/kdb1217)|  
 |:----:|:----:|:----:|:----:|:----:|:----:|
-|[Greed](https://github.com/Greeddk)|[Elcap](https://github.com/mgdgc)|[Ash](https://github.com/chaen805)|[Marcus](https://github.com/Medi0202)|[Andy](https://github.com/HIBAR973)|[Rash](https://github.com/kdb1217)|
+|[Greed](https://github.com/Greeddk)|[Elcap](https://github.com/mgdgc)|[Moana](https://github.com/chaewon-moana)|[Ollie](https://github.com/vanism2091)|[Benny](https://github.com/ivorrr987)|
 <br>
 
 

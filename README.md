@@ -66,8 +66,7 @@ TEAM Deepple입니다.
 
 ## 👩‍💻🧑‍💻 Authors
 
-
-|[<img src="https://github.com/seunggyun-jeong.png" width="100px">](https://github.com/seunggyun-jeong)|[<img src="https://github.com/up-ub.png" width="100px">](https://github.com/up-ub)|[<img src="https://github.com/chaen805.png" width="100px">](https://github.com/chaen805)|[<img src="https://github.com/Medi0202.png" width="100px">](https://github.com/Medi0202)|[<img src="https://github.com/HIBAR97.png" width="100px">](https://github.com/HIBAR97)| 
+|[<img src="https://github.com/Deepple-ADA/SaE.KIOSK/assets/127464395/d6752373-597b-41b3-a961-da30ed70aa98" width="100px">](https://github.com/Greeddk)|[<img src="https://github.com/Deepple-ADA/SaE.KIOSK/assets/127464395/2275c270-580e-46c4-a844-40f9ab6bc916" width="100px">](https://github.com/mgdgc)|[<img src="https://github.com/Deepple-ADA/SaE.KIOSK/assets/127464395/96631852-2e51-4eb6-91a0-3977f2b63d9e" width="100px">](https://github.com/chaewon-moana)|[<img src="https://github.com/Deepple-ADA/SaE.KIOSK/assets/127464395/13a00204-c3da-4d1d-a846-049ce460c540" width="100px">](https://github.com/vanism2091)|[<img src="https://github.com/Deepple-ADA/SaE.KIOSK/assets/127464395/fe399c17-bd15-4462-a21f-851455671c0d" width="100px">](https://github.com/ivorrr987)| 
 |:----:|:----:|:----:|:----:|:----:|
 |[Greed](https://github.com/Greeddk)|[Elcap](https://github.com/mgdgc)|[Moana](https://github.com/chaewon-moana)|[Ollie](https://github.com/vanism2091)|[Benny](https://github.com/ivorrr987)|
 <br>
